@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/home'
 import Create from './pages/create'
 import Demoluu from './pages/demoluu'
@@ -8,18 +8,23 @@ function App() {
     return (
         <div>
             <BrowserRouter>
-                <Route path='/'>
-                    <Home />
-                </Route>
-                <Route path='/create'>
-                    <Create />
-                </Route>
-                <Route path='/demoluu'>
-                    <Demoluu />
-                </Route>
-                <Route path='/luupage2'>
-                    <Luupage2 />
-                </Route>
+                <Switch>
+
+                    <Route path='/create'>
+                        <Create />
+                    </Route>
+                    <Route exact path='/demoluu'>
+                        <Demoluu />
+                    </Route>
+                    <Route exact path='/luupage2'>
+                        <Luupage2 />
+                    </Route>
+
+                    <Route path='/'>
+                        <Home />
+                    </Route>
+                </Switch>
+
             </BrowserRouter>
         </div>
     )
