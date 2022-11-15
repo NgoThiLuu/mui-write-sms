@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './pages/home'
+import Create from './pages/create'
+import Demoluu from './pages/demoluu'
+import Luupage2 from './pages/luupage2'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <BrowserRouter>
+                <Route path='/'>
+                    <Home />
+                </Route>
+                <Route path='/create'>
+                    <Create />
+                </Route>
+                <Route path='/demoluu'>
+                    <Demoluu />
+                </Route>
+                <Route path='/luupage2'>
+                    <Luupage2 />
+                </Route>
+            </BrowserRouter>
+        </div>
+    )
+
 }
 
-export default App;
+export default App
