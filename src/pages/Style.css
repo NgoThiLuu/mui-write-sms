@@ -1,0 +1,75 @@
+body
+	
+{
+	
+	margin: 0;
+	width: 100%;
+    overflow-x: hidden;
+}
+
+.expanded-element{
+    list-style: none;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.active{
+    list-style: none;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding-top: 8%;
+}
+
+.expandable{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    
+}
+
+
+nav.sidebar a#justify-icon {
+    outline: 0;
+    color: white;
+    font-size: 24px;
+    font-style: normal;
+    padding-left: 20%;
+ }
+
+ .logo-title{
+     background-color: #131619;
+     display: flex;
+     justify-content: center;
+ }
+
+ .crm-text{
+     padding-top: 40%;
+     color:blue;
+ }
+
+ .crm-title-logo{
+    color: white;
+    padding-top: 6%;
+ }
+
+ nav.sidebar .expanded-element {
+    padding-left: 2%;
+    /* display: none; */
+    font-size: 20px;
+    position: relative;
+    bottom: 2px; }
+
+.conten-menu{
+    background-color:gray;
+    position: relative;
+    height: 100%;
+}
+
+.sidebar{
+    height: 100%;
+    transform: translateX(0);
+}
