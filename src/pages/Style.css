@@ -5,6 +5,7 @@ body
 	margin: 0;
 	width: 100%;
     overflow-x: hidden;
+    
 }
 
 .expanded-element{
@@ -28,20 +29,37 @@ body
     align-items: center;
     text-decoration: none;
     width: 100%;
-    
+   
 }
 
 
 nav.sidebar a#justify-icon {
     outline: 0;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
-    padding-left: 20%;
+    padding-left: 0%;
  }
+/* 
+nav.sidebar{
+    position:absolute;
+    height:100%;
+    left:0;
+    overflow:hidden;
+  
+ } */
+
+.title1{
+    padding-right: 0%;
+}
+
+.title2{
+    padding-right: 15%;
+}
+
 
  .logo-title{
-     background-color: #131619;
+     background-color:#333333;
      display: flex;
      justify-content: center;
  }
@@ -49,11 +67,17 @@ nav.sidebar a#justify-icon {
  .crm-text{
      padding-top: 40%;
      color:blue;
+     
  }
 
  .crm-title-logo{
-    color: white;
+    color: White;
     padding-top: 6%;
+    
+ }
+
+ .iconstyle-title{
+    color: White;
  }
 
  nav.sidebar .expanded-element {
@@ -67,9 +91,66 @@ nav.sidebar a#justify-icon {
     background-color:gray;
     position: relative;
     height: 100%;
+    
 }
 
-.sidebar{
-    height: 100%;
-    transform: translateX(0);
+
+.iconstyle-dashboard{
+    color: blue;
 }
+
+
+.iconstyle-phone{
+    color: coral;
+   
+}
+
+.iconstyle-headset{
+    color: yellow;
+    
+}
+
+.iconstyle-sanbox{
+    color: violet;
+}
+
+.iconstyle-hiuser{
+    color: violet;
+}
+.iconstyle-start{
+    color: yellow;
+}
+.iconstyle-work{
+    color: yellowgreen;
+}
+
+
+
+.content-menu{
+    position:absolute;
+    height:100%;
+    left:0;
+    background-color:#999966;
+    
+  
+ }
+
+/* .content-menu:hover,List.content-menu.expanded {
+     overflow:visible;
+     opacity: 1 !important;
+} */
+
+.iconstyle-plus{
+    
+    font-size: 35px;
+    color: blue;
+}
+.subnav{
+    
+    background-color: #999966;
+}
+.title-custommer{
+    color: black;
+    
+}
+
