@@ -45,6 +45,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import {FcPortraitMode} from 'react-icons/fc';
 import LogoutIcon from '@mui/icons-material/Logout';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import InputLabel from '@mui/material/InputLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Avatar from '@mui/material/Avatar';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { green } from '@mui/material/colors';
+
+
 
 const drawerWidth = 240;
 
@@ -148,7 +158,11 @@ export default function MiniDrawer() {
       }
     }
 
-  
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
 
 
@@ -164,6 +178,7 @@ export default function MiniDrawer() {
       <AppBar position="fixed" open={open} className="nav">
         <Toolbar className="subnav">
           <IconButton
+            className="subnav-icon"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -172,6 +187,12 @@ export default function MiniDrawer() {
               marginRight: 5,
               ...(open && { display: 'none' }),
             }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <IconButton
+            className="subnav-icon-mobile"
+            
           >
             <MenuIcon />
           </IconButton>
@@ -249,7 +270,7 @@ export default function MiniDrawer() {
 
 
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} className="sidebar-menu">
         <DrawerHeader className='logo-title'>
           <IconButton onClick={handleDrawerClose}>
                     <Typography className="title1"> <h4 className="crm-title-logo">HANBIRO</h4></Typography>
@@ -292,10 +313,107 @@ export default function MiniDrawer() {
 
 
 
-
-
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
+        <Row>
+            <Col sm={12} md={12} lg={6}>
+              <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'left',
+                    '& > *': {
+                      m: 1,
+                    },
+                  }}
+                >
+                
+                <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
+                  {/* <Button  variant="outlined" className="btn-back" size="small"><KeyboardBackspaceIcon /></Button> */}
+                  <Button variant="outlined" className="btn-back" ><KeyboardBackspaceIcon /></Button>
+                  <Button>
+                  <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
+                    
+                    <Select
+                      className="active-list"
+                      value={age}
+                      onChange={handleChange}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                    >
+                      <MenuItem value="">
+                        <Typography>Activity</Typography>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                  </Button>
+                  
+                  <Button ><Typography className="subject-sms"><b>SMS Subject</b></Typography></Button>
+                </ButtonGroup>
+              </Box>
+            </Col>
+
+
+
+
+            <Col sm={12} md={12} lg={6}>
+                <Box sx={{ flexGrow: 1 }} />
+                <Box sx={{ 
+                  display: { 
+                  xs: 'block', 
+                  md: 'flex',
+                  float:'right',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  
+                } 
+                  }}>
+                
+                <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
+                  <Button  variant="outlined" className="btn-done" size="small">Done</Button>
+                  <Button>
+                  <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
+                    
+                    <Select
+                      className="active-list"
+                      value={age}
+                      onChange={handleChange}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                    >
+                      <MenuItem value="">
+                        <Typography>More</Typography>
+                      </MenuItem>
+                      <MenuItem value={10}>Clone</MenuItem>
+                      <MenuItem value={20}>Delete</MenuItem>
+                      
+                    </Select>
+                  </FormControl>
+                  </Button>
+                  <Button  variant="outlined" className="btn-new" size="small">+ New</Button>
+                  <Avatar sx={{ bgcolor: green[500] }}
+                        alt="Remy Sharp"
+                        src="/broken-image.jpg" className="avatar" > </Avatar>
+                </ButtonGroup>
+                
+                
+                
+                </Box>
+            </Col>
+
+
+
+         
+        </Row>
+        <Divider />
+        <Row>
+          <Col md={12}>
+            
+          </Col>
+        </Row>
         <Row>
                   <Col md={3}>
                       <Typography>Test1</Typography>
@@ -307,6 +425,9 @@ export default function MiniDrawer() {
                   <Typography>Test3</Typography>
                   </Col>
         </Row>
+
+
+        
         {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non

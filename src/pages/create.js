@@ -161,7 +161,7 @@ export default function MiniDrawer() {
 
 
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} className="sidebar-menu">
         <DrawerHeader className='logo-title'>
           <IconButton onClick={handleDrawerClose}>
                     <Typography className="title1"> <h4 className="crm-title-logo">HANBIRO</h4></Typography>

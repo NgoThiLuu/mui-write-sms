@@ -154,3 +154,92 @@ nav.sidebar{
     
 }
 
+.btn-back{
+    height: 4%  !important;
+    position: absolute ;
+    top: 11%;
+}
+
+
+
+
+
+.subject-sms{
+    font-size: 30px;
+    color:  rgb(35, 35, 155);
+    
+}
+
+.line-btn-icon{
+    display: flex;
+}
+
+.btn-done{
+    height: 75%;
+    position: absolute;
+    right: 5%;
+    width: 40%;
+}
+
+.btn-new{
+    height: 70%;
+    position: absolute ;
+    left: 5%;
+    
+    border-radius: 10px !important;
+    background-color: #007fff !important;
+    color: white !important;
+    width: 40%;
+}
+.group-btn{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.avatar{
+    height: 58%;
+    position: absolute;
+     
+    left: 6%;
+    
+}
+.subnav-icon-mobile{
+    display: none  !important;
+}
+
+
+/* Mobile:width < 740px*/
+@media only screen and (max-width: 767px){
+	.footer .col-md-4 .col-md-4 .show-menu-all{
+		border-right: solid white 0px;
+		border-bottom: solid white 0px;
+		margin-left: 0px;
+		text-align: left;
+		min-height: 0px;
+	}
+
+	.avatar{
+        display: none  !important;
+    }
+
+    .sidebar-menu{
+        display: none  !important; 
+    }
+
+    .content-menu{
+        display: none  !important; 
+    }
+	
+    .subnav-icon{
+        display: none  !important; 
+    }
+
+    .subnav-icon-mobile{
+        display: block  !important;
+    }
+
+    
+
+  }
