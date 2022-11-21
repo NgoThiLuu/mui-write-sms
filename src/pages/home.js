@@ -43,7 +43,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import {FcPortraitMode} from 'react-icons/fc';
+import { FcPortraitMode } from 'react-icons/fc';
 import LogoutIcon from '@mui/icons-material/Logout';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import InputLabel from '@mui/material/InputLabel';
@@ -53,10 +53,37 @@ import Select from '@mui/material/Select';
 import Avatar from '@mui/material/Avatar';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { green } from '@mui/material/colors';
-
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { FcLowPriority } from 'react-icons/fc';
+import FactoryIcon from '@mui/icons-material/Factory';
+import DescriptionIcon from '@mui/icons-material/Description';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { FaRegClone } from 'react-icons/fa';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import AlertTitle from '@mui/material/AlertTitle';
+import Chip from '@mui/material/Chip';
+import Grid from '@mui/material/Grid';
+import CreateIcon from '@mui/icons-material/Create';
 
 
 const drawerWidth = 240;
+
+
+
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -123,7 +150,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+
+
+
+
+
+
 export default function MiniDrawer() {
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -138,39 +172,56 @@ export default function MiniDrawer() {
 
 
   const renderIcon = (index) => {
-      switch(index) {
-        case 0:
-          return <AiOutlineDashboard className="iconstyle-dashboard" size={30}></AiOutlineDashboard>;
-        case 1:
-          return <RememberMeIcon className="iconstyle-phone" size={30}></RememberMeIcon>
-        case 2:
-          return <HeadsetIcon className="iconstyle-headset" size={30}></HeadsetIcon>;
-        case 3:
-          return <HiUserGroup className="iconstyle-hiuser" size={30} ></HiUserGroup>;
-        case 4:
-          return <AiOutlineCodepen className="iconstyle" size={30}></AiOutlineCodepen>;
-        case 5:
-          return <AiOutlineCodeSandbox className="iconstyle-sanbox" size={30}></AiOutlineCodeSandbox>;
-        case 6:
-          return <FaRegStar className="iconstyle-start" size={30}></FaRegStar>;
-        default:
-          return <GrStackOverflow className="iconstyle-work" size={30}></GrStackOverflow>;
-      }
+    switch (index) {
+      case 0:
+        return <AiOutlineDashboard className="iconstyle-dashboard" size={30}></AiOutlineDashboard>;
+      case 1:
+        return <RememberMeIcon className="iconstyle-phone" size={30}></RememberMeIcon>
+      case 2:
+        return <HeadsetIcon className="iconstyle-headset" size={30}></HeadsetIcon>;
+      case 3:
+        return <HiUserGroup className="iconstyle-hiuser" size={30} ></HiUserGroup>;
+      case 4:
+        return <AiOutlineCodepen className="iconstyle" size={30}></AiOutlineCodepen>;
+      case 5:
+        return <AiOutlineCodeSandbox className="iconstyle-sanbox" size={30}></AiOutlineCodeSandbox>;
+      case 6:
+        return <FaRegStar className="iconstyle-start" size={30}></FaRegStar>;
+      default:
+        return <GrStackOverflow className="iconstyle-work" size={30}></GrStackOverflow>;
     }
+  }
 
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  // 
+  const [value, setValue] = React.useState('1');
 
+  const handleChangetab = (event, newValue) => {
+    setValue(newValue);
+  };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openmenu = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  
 
-
-
-
-
-    
+  const content = (
+    <div>
+      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
+   Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+   Sed malesuada lobortis pretium.`}
+    </div>
+  );
+ 
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -192,79 +243,79 @@ export default function MiniDrawer() {
           </IconButton>
           <IconButton
             className="subnav-icon-mobile"
-            
+
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" className="title-custommer">
-            Customer Name 
+            Customer Name
           </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <IconButton size="large" aria-label="search" color="inherit">
-                    <AiFillPlusCircle className="iconstyle-plus"></AiFillPlusCircle>     
-                </IconButton>
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                >
-                <RestoreIcon />
-                </IconButton>
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                >
-                <SearchIcon />
-                </IconButton>
-            </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton size="large" aria-label="search" color="inherit">
+              <AiFillPlusCircle className="iconstyle-plus"></AiFillPlusCircle>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <RestoreIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Box>
 
-            <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <IconButton
-                size="large"
-                aria-label="show 2 new notifications"
-                color="inherit"
-                >
-                <Badge badgeContent={2} color="error">
-                    <NotificationsIcon />
-                </Badge>
-                </IconButton>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton
+              size="large"
+              aria-label="show 2 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={2} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
 
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                >
-                <SettingsIcon />
-                </IconButton>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <SettingsIcon />
+            </IconButton>
 
 
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                >
-                <HelpOutlineIcon />
-                </IconButton>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <HelpOutlineIcon />
+            </IconButton>
 
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                >
-                <FcPortraitMode />
-                </IconButton>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <FcPortraitMode />
+            </IconButton>
 
-                <IconButton
-                size="large"
-                aria-haspopup="true"
-                color="inherit"
-                edge="end"
-                >
-                <LogoutIcon />
-                </IconButton> 
-            </Box>
+            <IconButton
+              size="large"
+              aria-haspopup="true"
+              color="inherit"
+              edge="end"
+            >
+              <LogoutIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -273,17 +324,17 @@ export default function MiniDrawer() {
       <Drawer variant="permanent" open={open} className="sidebar-menu">
         <DrawerHeader className='logo-title'>
           <IconButton onClick={handleDrawerClose}>
-                    <Typography className="title1"> <h4 className="crm-title-logo">HANBIRO</h4></Typography>
-                    <Typography className="title2"> <h6 className="crm-text">CRM</h6></Typography>
+            <Typography className="title1"> <h4 className="crm-title-logo">HANBIRO</h4></Typography>
+            <Typography className="title2"> <h6 className="crm-text">CRM</h6></Typography>
             {theme.direction === 'ltr' ? <DensitySmallIcon className="iconstyle-title"></DensitySmallIcon> : <DensitySmallIcon className="iconstyle-title"></DensitySmallIcon>}
           </IconButton>
         </DrawerHeader>
         <Divider />
 
 
-        
+
         <List className='content-menu'>
-          {['DashBoard', 'My Work', 'Desk', 'Customer','Product','Demo Page','Favories','My Work'].map((text, index) => (
+          {['DashBoard', 'My Work', 'Desk', 'Customer', 'Product', 'Demo Page', 'Favories', 'My Work'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -299,7 +350,7 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                   {renderIcon(index)}
+                  {renderIcon(index)}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -316,24 +367,25 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Row>
-            <Col sm={12} md={12} lg={6}>
-              <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'left',
-                    '& > *': {
-                      m: 1,
-                    },
-                  }}
-                >
-                
-                <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
-                  {/* <Button  variant="outlined" className="btn-back" size="small"><KeyboardBackspaceIcon /></Button> */}
-                  <Button variant="outlined" className="btn-back" ><KeyboardBackspaceIcon /></Button>
-                  <Button>
+          <Col sm={12} md={12} lg={6}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'left',
+                '& > *': {
+                  m: 1,
+                },
+              }}
+            >
+
+              <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
+                {/* <Button  variant="outlined" className="btn-back" size="small"><KeyboardBackspaceIcon /></Button> */}
+                <Button variant="outlined" className="btn-back" ><KeyboardBackspaceIcon /></Button>
+
+                <Button>
                   <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
-                    
+
                     <Select
                       className="active-list"
                       value={age}
@@ -349,85 +401,236 @@ export default function MiniDrawer() {
                       <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                   </FormControl>
-                  </Button>
+                </Button>
+
+                <Button ><Typography className="subject-sms"><b>SMS Subject</b></Typography></Button>
+              </ButtonGroup>
+            </Box>
+          </Col>
+
+
+
+
+          <Col sm={12} md={12} lg={6}>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box className="box-done-new" sx={{
+              display: {
+                xs: 'block',
+                md: 'flex',
+                float: 'right',
+
+
+              }
+            }}>
+
+              <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
+                <Button variant="outlined" className="btn-done" size="small">Done</Button>
+                <Button variant="outlined" className="btn-more" size="small">
                   
-                  <Button ><Typography className="subject-sms"><b>SMS Subject</b></Typography></Button>
-                </ButtonGroup>
-              </Box>
-            </Col>
-
-
-
-
-            <Col sm={12} md={12} lg={6}>
-                <Box sx={{ flexGrow: 1 }} />
-                <Box sx={{ 
-                  display: { 
-                  xs: 'block', 
-                  md: 'flex',
-                  float:'right',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  
-                } 
-                  }}>
-                
-                <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
-                  <Button  variant="outlined" className="btn-done" size="small">Done</Button>
-                  <Button>
-                  <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
-                    
-                    <Select
-                      className="active-list"
-                      value={age}
-                      onChange={handleChange}
-                      displayEmpty
-                      inputProps={{ 'aria-label': 'Without label' }}
+                   <div>
+                    <Button
+                      id="basic-button"
+                      aria-controls={openmenu ? 'basic-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={openmenu ? 'true' : undefined}
+                      onClick={handleClick}
                     >
-                      <MenuItem value="">
-                        <Typography>More</Typography>
-                      </MenuItem>
-                      <MenuItem value={10}>Clone</MenuItem>
-                      <MenuItem value={20}>Delete</MenuItem>
+                      More<KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+                    </Button>
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={openmenu}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                      }}
+                    >
+                      <MenuItem onClick={handleClose}><FaRegClone></FaRegClone> Clone </MenuItem>
+                      <MenuItem onClick={handleClose}><DeleteOutlineIcon></DeleteOutlineIcon> Delete </MenuItem>
                       
-                    </Select>
-                  </FormControl>
-                  </Button>
-                  <Button  variant="outlined" className="btn-new" size="small">+ New</Button>
-                  <Avatar sx={{ bgcolor: green[500] }}
-                        alt="Remy Sharp"
-                        src="/broken-image.jpg" className="avatar" > </Avatar>
-                </ButtonGroup>
-                
-                
-                
-                </Box>
-            </Col>
+                    </Menu>
+                  </div>
+
+
+                </Button>
+                <Button variant="outlined" className="btn-new" size="small">+ New</Button>
+                <Avatar sx={{ bgcolor: green[500] }}
+                  alt="Remy Sharp"
+                  src="/broken-image.jpg" className="avatar" > </Avatar>
+              </ButtonGroup>
 
 
 
-         
+            </Box>
+          </Col>
+
+
+
+
         </Row>
         <Divider />
         <Row>
           <Col md={12}>
-            
+
           </Col>
         </Row>
         <Row>
-                  <Col md={3}>
-                      <Typography>Test1</Typography>
-                  </Col>
-                  <Col md={6}>
-                    <Typography>Test2</Typography>
-                  </Col>
-                  <Col md={3}>
-                  <Typography>Test3</Typography>
-                  </Col>
+          <Col sm={12} md={12} lg={3}>
+            <Box className="box-summary">
+              <List className="text-summary-list">
+                <FormGroup>
+                  <ListItem><Typography className="text-summmary">Summary</Typography></ListItem>
+
+                </FormGroup>
+                <FormGroup className="group-date">
+                  <ListItem><Typography className="text-sms-gray">SMS Schedule</Typography></ListItem>
+                  <ListItem><Typography className="text-schedule">Schedule</Typography></ListItem>
+                </FormGroup>
+                <FormGroup className="group-calendar">
+                  <ListItem>
+                    <ListItemIcon className="icon-calendar-par">
+                      <CalendarMonthIcon className="icon-calendar-sche-par"></CalendarMonthIcon>
+                    </ListItemIcon>
+                    <Typography className="text-sms-gray">Date</Typography>
+
+                  </ListItem>
+                  <ListItem><Typography>2022-02-01 11:00</Typography>
+                    <ListItemIcon className="icon-calendar">
+                      <CalendarMonthIcon className="icon-calendar-sche"></CalendarMonthIcon>
+                    </ListItemIcon>
+                  </ListItem>
+                </FormGroup>
+                <FormGroup className="group-priority">
+                  <ListItem>
+                    <ListItemIcon className="stutus-priority">
+                      <FcLowPriority className="icon-stutus-priority"></FcLowPriority>
+                    </ListItemIcon>
+                    <Typography className="text-sms-gray">Priority</Typography>
+                  </ListItem>
+                  <ListItem>
+                    <Typography className="box-status">New</Typography>
+                  </ListItem>
+                </FormGroup>
+                <FormGroup className="group-purpose">
+                  <ListItem>
+                    <ListItemIcon className="stutus-purpose">
+                      <FactoryIcon className="icon-stutus-purpose"></FactoryIcon>
+                    </ListItemIcon>
+                    <Typography className="text-sms-gray">Purpose</Typography>
+
+                  </ListItem>
+                  <ListItem><Typography>Purpose SMS </Typography></ListItem>
+                </FormGroup>
+                <FormGroup className="group-priority">
+                  <ListItem>
+                    <ListItemIcon className="icon-descrip">
+                      <DescriptionIcon className="icon-descrip-sub"></DescriptionIcon>
+                    </ListItemIcon>
+                    <Typography className="icon-stutus-priority">Description</Typography>
+                  </ListItem>
+                  <ListItem><Typography>Description </Typography></ListItem>
+                </FormGroup>
+
+              </List>
+
+
+
+            </Box>
+          </Col>
+          <Col sm={12} md={12} lg={6}>
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+                <TabContext value={value}>
+                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <TabList onChange={handleChangetab} aria-label="lab API tabs example">
+                      <Tab label="Insctuction" value="1" className="tab1-inctuction" />
+                      <Tab label="Timeline" value="2" className="tab2-timeline" />
+                      <Tab label="+ More" value="3" className="tab3-more" />
+                    </TabList>
+                  </Box>
+                  <TabPanel value="1">
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        // alignItems: 'center',
+                        '& > *': {
+                          m: 1,
+                        },
+                      }}
+                      className="box-tab1-insctuction"
+                      
+                    >
+                       <ButtonGroup size="large" aria-label="large button group" className="btn-tab1-insctuction" >
+                          <Button className="btntodo-tab1-insctuction"><Typography>Todo</Typography> </Button>
+                          <Button className="btndoing-tab1-insctuction"><Typography>Doing</Typography> </Button>
+                          <Button className="btndone-tab1-insctuction"><Typography>Done</Typography> </Button>
+                      </ButtonGroup>
+                      
+                      <Card variant="outlined" className="Card-template">
+                      <React.Fragment className="card-insctuction">
+                        <CardContent>
+                          <ListItem>
+                            <Typography className="text-template">Template:  </Typography>
+                            <Typography className="text-template-content">Template 1</Typography>
+                          </ListItem>
+                          <ListItem>
+                            <Typography className="text-template">Direction: </Typography>
+                            <Typography className="text-template-content" >Outgoing</Typography>
+                          </ListItem>
+                          <ListItem>
+                            <Typography className="text-template">From: </Typography>
+                            <Avatar className="avtar-card"></Avatar>
+                            <Typography className="text-template-content">MSM</Typography>
+                          </ListItem>
+                          <ListItem>
+                            <Typography className="text-template">To: </Typography>
+                            <Typography className="text-template-content" >Allan Rey Palban &lt;010-1234-5678&gt; </Typography>
+                          </ListItem>
+                          <OutlinedInput className="text-content" placeholder="Content" />
+                        </CardContent>
+                      </React.Fragment>
+                      </Card>
+                    </Box>
+                  </TabPanel>
+                  <TabPanel value="2">
+                    <Divider> 
+                      <Chip label="2021-03-17" variant="outlined" className="tab2-timeline-date" />
+                    </Divider>
+
+
+
+                    <Box>
+                      <Grid container>
+                        
+                        <Divider orientation="vertical" flexItem>
+                          <Alert icon={false} severity="success">
+                            <CreateIcon></CreateIcon>
+                          </Alert>
+                        </Divider>
+                        <Grid item xs>
+                          {content}
+                        </Grid>
+                        <Grid item xs>
+                          {content}
+                        </Grid>
+                      </Grid>
+                  </Box>
+              
+
+
+                  </TabPanel>
+                  <TabPanel value="3">+ More</TabPanel>
+                </TabContext>
+            </Box>
+          </Col>
+          <Col sm={12} md={12} lg={3}>
+            <Typography>Test3</Typography>
+          </Col>
         </Row>
 
 
-        
+
         {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non

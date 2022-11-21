@@ -155,7 +155,7 @@ nav.sidebar{
 }
 
 .btn-back{
-    height: 4%  !important;
+    height: 70%  !important;
     position: absolute ;
     top: 11%;
 }
@@ -179,10 +179,25 @@ nav.sidebar{
     position: absolute;
     right: 5%;
     width: 40%;
+    background-color: #007fff !important;
+    color: white !important;
+}
+
+
+
+.btn-more{
+    height: 75%;
+    position: absolute;
+    left: 1%;
+    right: 3%;
+    width: 40%;
+    background-color: #007f00 !important;
+    color: white !important;
+    border-radius: 5px !important;
 }
 
 .btn-new{
-    height: 70%;
+    height: 75%;
     position: absolute ;
     left: 5%;
     
@@ -208,6 +223,168 @@ nav.sidebar{
 .subnav-icon-mobile{
     display: none  !important;
 }
+
+
+.box-summary{
+    display: flex;
+    align-items: center;
+   
+}
+.text-summary-list{
+    width: 100%;
+}
+
+
+.text-summmary{
+    font-weight: bold !important;
+    font-size: 20px !important;
+    
+}
+
+.text-sms-gray{
+    color: black;
+    font-weight: bold !important;
+}
+
+.group-calendar{
+    background-color: #aaffd4;
+    
+}
+.group-date{
+    background-color: honeydew;
+}
+
+.group-priority{
+    background-color: rgb(254, 240, 255);
+}
+
+.group-purpose{
+    background-color: #aaffd4;
+}
+
+.box-status{
+    background-color: hotpink;
+    border-radius: 15px !important;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon-calendar-sche{
+    font-size: 20pt !important;
+}
+.icon-calendar{
+    padding-left: 10%;
+}
+
+.icon-calendar-sche-par{
+    font-size: 25pt !important;
+}
+
+.icon-calendar-par{
+    padding-right: 2%;
+}
+
+.stutus-priority{
+    padding-right: 2%;
+}
+.icon-stutus-priority{
+    font-size: 25pt;
+    
+}
+
+.icon-descrip-sub{
+    font-size: 25pt !important;
+    color:#7f7f00;
+}
+
+.icon-stutus-purpose{
+    font-size: 25pt !important;
+    color:#00bfbf;
+}
+.stutus-purpose{
+    padding-right: 2%;
+}
+
+.tab1-inctuction{
+    width: 33%;
+}
+.tab2-timeline{
+    width: 33%;
+}
+
+.tab3-more{
+    width: 33%;
+}
+
+.tab1-insctuction{
+    display: flex;
+    align-items: center;
+
+}
+
+.box-tab1-insctuction{
+    display: flex;
+    align-items: center; 
+}
+
+.btn-tab1-insctuction{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.btntodo-tab1-insctuction{
+    background-color: rgb(0, 205, 79) !important;
+    color: mintcream !important;
+    width: 18%;
+}
+
+.btndoing-tab1-insctuction{
+    background-color: #007fff !important;
+    color:White !important;
+    width: 18%;
+}
+
+.btndone-tab1-insctuction{
+    background-color: #e5e5e5 !important;
+    color:black !important;
+    width: 18%;
+}
+
+.Card-template{
+    width: 100%;
+}
+
+.card-insctuction{
+    display: flex;
+}
+
+.text-template{
+    color: gray;
+}
+.text-template{
+    padding-right: 2%;
+   
+}
+
+.text-template-content{
+    padding-left: 2%;
+}
+
+.text-content{
+    width: 100% !important;
+}
+
+.tab2-timeline-date{
+    background-color: #333333!important;
+    color:White !important;
+    border-radius: 15px !important;
+;
+}
+
+
+
 
 
 /* Mobile:width < 740px*/
@@ -238,6 +415,9 @@ nav.sidebar{
 
     .subnav-icon-mobile{
         display: block  !important;
+    }
+    .box-done-new{
+        float:'left',
     }
 
     
