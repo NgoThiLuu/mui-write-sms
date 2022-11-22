@@ -78,6 +78,15 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import CreateIcon from '@mui/icons-material/Create';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import WorkIcon from '@mui/icons-material/Work';
+import InputAdornment from '@mui/material/InputAdornment';
+import FilledInput from '@mui/material/FilledInput';
+import DownloadIcon from '@mui/icons-material/Download';
+import MessageIcon from '@mui/icons-material/Message';
+import FilePresentIcon from '@mui/icons-material/FilePresent';
+
+
 
 
 const drawerWidth = 240;
@@ -204,6 +213,9 @@ export default function MiniDrawer() {
     setValue(newValue);
   };
 
+
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openmenu = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -212,13 +224,18 @@ export default function MiniDrawer() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [valueaa, setValueaa] = React.useState('1');
+
+  const handleChangetabmore = (event, newValue) => {
+    setValueaa(newValue);
+  };
+  
   
 
   const content = (
     <div>
-      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
-   Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-   Sed malesuada lobortis pretium.`}
+      {`Lorem ipsum dolor `}
     </div>
   );
  
@@ -382,7 +399,7 @@ export default function MiniDrawer() {
               <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
                 {/* <Button  variant="outlined" className="btn-back" size="small"><KeyboardBackspaceIcon /></Button> */}
                 <Button variant="outlined" className="btn-back" ><KeyboardBackspaceIcon /></Button>
-
+                <Divider sx={{ height: 30, m: 0.5 }} orientation="vertical" />
                 <Button>
                   <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
 
@@ -402,7 +419,7 @@ export default function MiniDrawer() {
                     </Select>
                   </FormControl>
                 </Button>
-
+                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <Button ><Typography className="subject-sms"><b>SMS Subject</b></Typography></Button>
               </ButtonGroup>
             </Box>
@@ -594,35 +611,100 @@ export default function MiniDrawer() {
                     </Box>
                   </TabPanel>
                   <TabPanel value="2">
-                    <Divider> 
+                    <Divider className="divider-date"> 
                       <Chip label="2021-03-17" variant="outlined" className="tab2-timeline-date" />
                     </Divider>
 
 
 
-                    <Box>
-                      <Grid container>
-                        
-                        <Divider orientation="vertical" flexItem>
-                          <Alert icon={false} severity="success">
-                            <CreateIcon></CreateIcon>
-                          </Alert>
-                        </Divider>
-                        <Grid item xs>
-                          {content}
-                        </Grid>
-                        <Grid item xs>
-                          {content}
-                        </Grid>
-                      </Grid>
+                <Box >
+                  <Grid container >
+                    <Divider  orientation="vertical" flexItem  >
+                        <Avatar className="tab2-box-pen">
+                          <CreateIcon className="tab2-icon-pen"></CreateIcon>
+                        </Avatar>
+                    </Divider>
+                    <Grid item xs>
+                      <Card variant="outlined" className="tab2-card-template">
+                      <React.Fragment className="card-insctuction">
+                        <CardContent className="content-card">
+                            <Typography>Expected Duration was updated from <b>1 hour </b>to <b>1 day</b> by MSR</Typography>
+                            <Typography className="text-template-content-hour" >15:28</Typography>
+                        </CardContent>
+                      </React.Fragment>
+                      </Card>
+                    </Grid>
+                  </Grid>
                   </Box>
               
 
+                  <Box >
+                  <Grid container >
+                    <Divider  orientation="vertical" flexItem component="li" >
+                        <Avatar className="tab2-box-pen">
+                          <MessageIcon className="tab2-icon-pen"></MessageIcon>
+                        </Avatar>
+                    </Divider>
+                    <Grid item xs>
+                      <Card variant="outlined" className="tab2-card2-template">
+                      <React.Fragment className="card-insctuction">
+                        <CardContent className="content-card">
+                            <Typography>KDH noted <b>" The demo location is changed. "</b> </Typography>
+                            <Typography className="text-template-content-hour" >15:28</Typography>
+                        </CardContent>
+                      </React.Fragment>
+                      </Card>
+                    </Grid>
+                  </Grid>
+                  </Box>
 
+                  <Box >
+                  <Grid container >
+                    <Divider  orientation="vertical" flexItem component="li" >
+                        <Avatar className="tab2-box-pen">
+                          <FilePresentIcon className="tab2-icon-pen"></FilePresentIcon>
+                        </Avatar>
+                    </Divider>
+                    <Grid item xs>
+                      <Card variant="outlined" className="tab2-card2-template">
+                      <React.Fragment className="card-insctuction">
+                        <CardContent className="content-card">
+                            <Typography>MSR uploaded a file <b>report.doc</b></Typography>
+                            <Typography>15:28</Typography>
+                        </CardContent>
+                        <CardActions className="download-file-tab2">
+                            <Button variant="text" className="download-file"><DownloadIcon></DownloadIcon>Download</Button>
+                        </CardActions>
+                      </React.Fragment>
+                      
+                      </Card>
+                    </Grid>
+                  </Grid>
+                  </Box>
                   </TabPanel>
-                  <TabPanel value="3">+ More</TabPanel>
+
+
+
+
+                  <TabPanel value="3">
+                        
+                    <Box sx={{ width: '100%', typography: 'body1' }}>
+                      <TabContext value={valueaa}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                          <TabList onChange={handleChangetabmore} aria-label="lab API tabs example">
+                            <Tab label="Item One" value="1" />
+                            <Tab label="Item Two" value="2" />
+                          </TabList>
+                        </Box>
+                        <TabPanel value="1">Item One 5656</TabPanel>
+                        <TabPanel value="2">Item Two</TabPanel>
+                        
+                      </TabContext>
+                    </Box>
+                  </TabPanel>
                 </TabContext>
             </Box>
+            <Typography>Test3344</Typography>
           </Col>
           <Col sm={12} md={12} lg={3}>
             <Typography>Test3</Typography>
@@ -631,33 +713,7 @@ export default function MiniDrawer() {
 
 
 
-        {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
+        
       </Box>
     </Box>
   );

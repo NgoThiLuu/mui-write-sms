@@ -354,6 +354,8 @@ nav.sidebar{
 
 .Card-template{
     width: 100%;
+    height: 80% !important;
+    
 }
 
 .card-insctuction{
@@ -369,20 +371,76 @@ nav.sidebar{
 }
 
 .text-template-content{
-    padding-left: 2%;
+    padding-left: 3%;
+    float: right;
 }
 
 .text-content{
     width: 100% !important;
+    margin-top: 3%;
+    height: 70% !important;
 }
 
 .tab2-timeline-date{
     background-color: #333333!important;
     color:White !important;
     border-radius: 15px !important;
-;
+    
+
+}
+.divider-date{
+    padding-bottom: 5%;
 }
 
+
+
+.box-history{
+    height: 90% !important;
+}
+
+
+
+.tab2-box-pen{
+   background-color: #7f7f00 !important;
+   margin-top: 15% !important;
+   padding-left: 5%!important;
+   
+}
+.tab2-icon-pen{
+    color:White !important;
+    
+}
+
+
+.card-text-date{
+    display: flex;
+}
+.text-date{
+    display: flex;
+    justify-content: right !important;
+    
+}
+
+.content-card{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.text-template-content-hour{
+    padding-left: 25%;
+}
+
+
+.tab2-card2-template{
+    margin-top: 5%;
+}
+
+.download-file-tab2{
+    display: flex;
+    justify-content: flex-end;
+    
+}
 
 
 
