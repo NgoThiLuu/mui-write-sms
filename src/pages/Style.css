@@ -155,9 +155,10 @@ nav.sidebar{
 }
 
 .btn-back{
-    height: 70%  !important;
+    height: 75%  !important;
     position: absolute ;
     top: 11%;
+    
 }
 
 
@@ -440,6 +441,68 @@ nav.sidebar{
     display: flex;
     justify-content: flex-end;
     
+}
+
+.more-tab-two{
+    width: 100%;
+}
+
+.more-tab-note{
+    width: 50% !important;
+}
+
+.more-tab-teamchannel{
+    width: 50% !important;
+}
+
+.tab-more-text-content-note{
+    width: 100%;
+}
+
+.tab-more-text-paper-note{
+    background-color:#e5e5e5 !important;
+}
+
+
+.tab-more-icon-attachfile-note{
+    font-size: 30px!important;
+    color: chocolate;
+}
+.tab-more-note-btn-post{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.tab3-tab-more-btn-attachfile{
+    background-color:#e5e5e5 !important;
+    border: #e5e5e5 !important;
+    
+}
+.tab-more-note-btn-post{
+    background-color:#007fff !important;
+    border: #007fff !important;
+    color: white !important;
+}
+
+.tab3-box-date{
+    border-radius: 6px !important;
+    background-color: #e5e5e5!important;
+    border: #e5e5e5 !important;
+    font-weight: bold !important;
+}
+.tab-more-note-icon-pen{
+    background-color:#ffffff !important;
+    border: #ffffff !important;
+    color:#4c4c4c !important;
+    
+}
+
+.tab-more-note-icon-delete{
+    background-color:#ffffff !important;
+    border: #ffffff !important;
+    color:#ff0000 !important;
+   
 }
 
 

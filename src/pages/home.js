@@ -85,7 +85,10 @@ import FilledInput from '@mui/material/FilledInput';
 import DownloadIcon from '@mui/icons-material/Download';
 import MessageIcon from '@mui/icons-material/Message';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
-
+import Paper from '@mui/material/Paper';
+import ImageIcon from '@mui/icons-material/Image';
+import ClearIcon from '@mui/icons-material/Clear';
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 
 
 
@@ -233,11 +236,7 @@ export default function MiniDrawer() {
   
   
 
-  const content = (
-    <div>
-      {`Lorem ipsum dolor `}
-    </div>
-  );
+ 
  
 
   return (
@@ -690,21 +689,148 @@ export default function MiniDrawer() {
                         
                     <Box sx={{ width: '100%', typography: 'body1' }}>
                       <TabContext value={valueaa}>
-                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                          <TabList onChange={handleChangetabmore} aria-label="lab API tabs example">
-                            <Tab label="Item One" value="1" />
-                            <Tab label="Item Two" value="2" />
+                        <Box className="more-tab-two" sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                          <TabList onChange={handleChangetabmore} aria-label="lab API tabs example" className="more-tab-two">
+                            <Tab label="Note" value="1" className="more-tab-note" />
+                            <Tab label="TeamChannel" value="2" className="more-tab-teamchannel" />
                           </TabList>
                         </Box>
-                        <TabPanel value="1">Item One 5656</TabPanel>
-                        <TabPanel value="2">Item Two</TabPanel>
+                        <TabPanel value="1">
+                        <Box >
+                          <Paper >
+                              <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
+                              <Divider />
+                              <ListItemButton className="tab-more-text-paper-note">
+                                <ListItemIcon>
+                                  <Button variant="outlined"  className="tab3-tab-more-btn-attachfile"><FilePresentIcon className="tab-more-icon-attachfile-note" ></FilePresentIcon></Button>
+                                  <Button variant="outlined" className="tab3-tab-more-btn-attachfile"><ImageIcon className="tab-more-icon-attachfile-note" ></ImageIcon></Button>
+                                </ListItemIcon>
+                                <ListItemText primary=" " />
+                                <Button variant="outlined" className="tab-more-note-btn-post">Post</Button>
+                              </ListItemButton>
+                          </Paper>
+                        </Box>
+
+
+
+
+                      
+
+                        <Box >
+                          <Grid container >
+                            <Divider  orientation="vertical" flexItem  >
+                              <Box  sx={{ p: 1, my: 1, border: '1px solid' }} className="tab3-box-date" >
+                                  2021-03-17
+                              </Box>
+                            </Divider>
+                            <Grid item xs>
+                            </Grid>
+                          </Grid>
+                        </Box>
+              
+
+                        <Box >
+                          <Grid container >
+                            <Divider  orientation="vertical" flexItem component="li" >
+                                <Avatar className="tab2-box-pen">
+                                <IconButton
+                                  size="large"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FcPortraitMode />
+                                </IconButton>
+                                </Avatar>
+                            </Divider>
+                            <Grid item xs>
+                              <Card variant="outlined" className="tab2-card2-template">
+                              <React.Fragment className="card-insctuction">
+                                <CardContent className="content-card">
+                                    <Typography>MSR  <QueryBuilderIcon></QueryBuilderIcon> 13:00</Typography>
+                                    <Typography className="text-template-content-hour" >
+                                      <Button variant="outlined" className="tab-more-note-icon-pen"><CreateIcon></CreateIcon></Button>
+                                      <Button variant="outlined" className="tab-more-note-icon-delete"><ClearIcon></ClearIcon></Button>
+                                    </Typography>
+                                    
+                                </CardContent>
+                                <Divider/> 
+                                <CardActions className="content-card">
+                                  
+                                </CardActions>
+                              </React.Fragment>
+                              </Card>
+                            </Grid>
+                          </Grid>
+                        </Box>
+
+                        <Box >
+                          <Grid container >
+                            <Divider  orientation="vertical" flexItem component="li" >
+                                <Avatar className="tab2-box-pen">
+                                  <IconButton
+                                    size="large"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                  >
+                                    <FcPortraitMode />
+                                  </IconButton>
+                                </Avatar>
+                            </Divider>
+                            <Grid item xs>
+                              <Card variant="outlined" className="tab2-card2-template">
+                              <React.Fragment className="card-insctuction">
+                                <CardContent className="content-card">
+                                    <Typography>KDH noted <b>" The demo location is changed. "</b> </Typography>
+                                    <Typography className="text-template-content-hour" >15:28</Typography>
+                                </CardContent>
+                              </React.Fragment>
+                              </Card>
+                            </Grid>
+                          </Grid>
+                        </Box>
+
+                        <Box >
+                        <Grid container >
+                          <Divider  orientation="vertical" flexItem component="li" >
+                              <Avatar className="tab2-box-pen">
+                                <IconButton
+                                  size="large"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FcPortraitMode />
+                                </IconButton>
+                              </Avatar>
+                          </Divider>
+                          <Grid item xs>
+                            <Card variant="outlined" className="tab2-card2-template">
+                            <React.Fragment className="card-insctuction">
+                              <CardContent className="content-card">
+                                  <Typography>MSR uploaded a file <b>report.doc</b></Typography>
+                                  <Typography>15:28</Typography>
+                              </CardContent>
+                              <CardActions className="download-file-tab2">
+                                  <Button variant="text" className="download-file"><DownloadIcon></DownloadIcon>Download</Button>
+                              </CardActions>
+                            </React.Fragment>
+                            </Card>
+                          </Grid>
+                        </Grid>
+                        </Box>
+
+
+
+
                         
+                         
+                        </TabPanel>
+                        <TabPanel value="2">TeamChannel</TabPanel>
                       </TabContext>
                     </Box>
                   </TabPanel>
                 </TabContext>
             </Box>
-            <Typography>Test3344</Typography>
+            
           </Col>
           <Col sm={12} md={12} lg={3}>
             <Typography>Test3</Typography>
