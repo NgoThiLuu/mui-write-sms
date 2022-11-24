@@ -758,9 +758,26 @@ export default function MiniDrawer() {
                                     <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
                                 </CardActions>
                                 <CardActions >
-                                    <Typography><FilePresentIcon></FilePresentIcon>abc.doc</Typography>
                                     
-
+                                <List>
+                                    <ListItem disablePadding>
+                                      <ListItemButton>
+                                        <ListItemIcon>
+                                          <InboxIcon />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                                      </ListItemButton>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                      <ListItemButton>
+                                        <ListItemIcon>
+                                          <ClearIcon />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Drafts" />
+                                      </ListItemButton>
+                                    </ListItem>
+                                  </List>
+                                   
                                 </CardActions>
                               </React.Fragment>
                               </Card>
