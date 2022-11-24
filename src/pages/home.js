@@ -89,6 +89,12 @@ import Paper from '@mui/material/Paper';
 import ImageIcon from '@mui/icons-material/Image';
 import ClearIcon from '@mui/icons-material/Clear';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { SiMicrosoftexcel } from 'react-icons/si';
+import { HiOutlineDownload } from 'react-icons/hi';
+import Hoasen from './image/hoasennho.jpg';
 
 
 
@@ -233,8 +239,28 @@ export default function MiniDrawer() {
   const handleChangetabmore = (event, newValue) => {
     setValueaa(newValue);
   };
+
+
   
   
+  function notecontentuser ($username,$time) {
+    return(
+                       
+      <CardContent className="content-card">
+        <Typography>{$username}<QueryBuilderIcon></QueryBuilderIcon>{$time}</Typography>
+        <Typography className="text-template-content-hour" >
+          <Button variant="outlined" className="tab-more-note-icon-pen"><CreateIcon></CreateIcon></Button>
+          <Button variant="outlined" className="tab-more-note-icon-delete"><ClearIcon></ClearIcon></Button>
+        </Typography>
+    </CardContent>
+  
+       
+    )
+}
+
+
+const [items, setItems]= React.useState([])
+
 
  
  
@@ -729,8 +755,7 @@ export default function MiniDrawer() {
                         </Box>
               
 
-                        <Box >
-                          <Grid container >
+                        <Grid container >
                             <Divider  orientation="vertical" flexItem component="li" >
                                 <Avatar className="tab2-box-pen">
                                 <IconButton
@@ -745,37 +770,30 @@ export default function MiniDrawer() {
                             <Grid item xs>
                               <Card variant="outlined" className="tab2-card2-template">
                               <React.Fragment className="card-insctuction">
-                                <CardContent className="content-card">
-                                    <Typography>MSR  <QueryBuilderIcon></QueryBuilderIcon> 13:00</Typography>
-                                    <Typography className="text-template-content-hour" >
-                                      <Button variant="outlined" className="tab-more-note-icon-pen"><CreateIcon></CreateIcon></Button>
-                                      <Button variant="outlined" className="tab-more-note-icon-delete"><ClearIcon></ClearIcon></Button>
-                                    </Typography>
-                                    
-                                </CardContent>
+                                  {notecontentuser("MSR","13:00")}
                                 <Divider/> 
-                                <CardActions >
-                                    <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
-                                </CardActions>
                                 <CardActions >
                                     
                                 <List>
-                                    <ListItem disablePadding>
-                                      <ListItemButton>
-                                        <ListItemIcon>
-                                          <InboxIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Lorem test " />
-                                      </ListItemButton>
-                                    </ListItem>
-                                    <ListItem disablePadding>
-                                      <ListItemButton>
-                                        <ListItemIcon>
-                                          <ClearIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Drafts" />
-                                      </ListItemButton>
-                                    </ListItem>
+                                  <ListItem>
+                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+                                  </ListItem>
+                                  <ListItem disablePadding>
+                                    <ListItemButton>
+                                      <ListItemIcon>
+                                        <FilePresentIcon />
+                                      </ListItemIcon>
+                                      <ListItemText className="text-downloadfile">abc.doc </ListItemText>
+                                    </ListItemButton>
+                                  </ListItem>
+                                  <ListItem disablePadding>
+                                    <ListItemButton>
+                                      <ListItemIcon>
+                                        <FilePresentIcon />
+                                      </ListItemIcon>
+                                      <ListItemText className="text-downloadfile">def.pdf </ListItemText>
+                                    </ListItemButton>
+                                  </ListItem>
                                   </List>
                                    
                                 </CardActions>
@@ -783,38 +801,11 @@ export default function MiniDrawer() {
                               </Card>
                             </Grid>
                           </Grid>
-                        </Box>
 
                         <Box >
                           <Grid container >
                             <Divider  orientation="vertical" flexItem component="li" >
                                 <Avatar className="tab2-box-pen">
-                                  <IconButton
-                                    size="large"
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                  >
-                                    <FcPortraitMode />
-                                  </IconButton>
-                                </Avatar>
-                            </Divider>
-                            <Grid item xs>
-                              <Card variant="outlined" className="tab2-card2-template">
-                              <React.Fragment className="card-insctuction">
-                                <CardContent className="content-card">
-                                    <Typography>KDH noted <b>" The demo location is changed. "</b> </Typography>
-                                    <Typography className="text-template-content-hour" >15:28</Typography>
-                                </CardContent>
-                              </React.Fragment>
-                              </Card>
-                            </Grid>
-                          </Grid>
-                        </Box>
-
-                        <Box >
-                        <Grid container >
-                          <Divider  orientation="vertical" flexItem component="li" >
-                              <Avatar className="tab2-box-pen">
                                 <IconButton
                                   size="large"
                                   aria-haspopup="true"
@@ -822,31 +813,126 @@ export default function MiniDrawer() {
                                 >
                                   <FcPortraitMode />
                                 </IconButton>
-                              </Avatar>
-                          </Divider>
-                          <Grid item xs>
-                            <Card variant="outlined" className="tab2-card2-template">
-                            <React.Fragment className="card-insctuction">
-                              <CardContent className="content-card">
-                                  <Typography>MSR uploaded a file <b>report.doc</b></Typography>
-                                  <Typography>15:28</Typography>
-                              </CardContent>
-                              <CardActions className="download-file-tab2">
-                                  <Button variant="text" className="download-file"><DownloadIcon></DownloadIcon>Download</Button>
-                              </CardActions>
-                            </React.Fragment>
-                            </Card>
+                                </Avatar>
+                            </Divider>
+                            <Grid item xs>
+                              <Card variant="outlined" className="tab2-card2-template">
+                              <React.Fragment className="card-insctuction">
+                                  {notecontentuser("KDH","10:00")}
+                                <Divider/> 
+                                <CardActions >
+                                    
+                                <List>
+                                  <ListItem>
+                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ligula, ornare sit amet porttitor quis, placerat quis lacus. Mauris lectus turpis, rutrum non placerat id, placerat et nisl. " />
+                                  </ListItem>
+                                  </List>
+                                </CardActions>
+                              </React.Fragment>
+                              </Card>
+                            </Grid>
                           </Grid>
-                        </Grid>
                         </Box>
-
-
-
+                        
+                        
 
                         
                          
                         </TabPanel>
-                        <TabPanel value="2">TeamChannel</TabPanel>
+                        <TabPanel value="2">
+                          <Box className="box-par-content"
+                            style={{
+                            height: 400,
+                            overflow: 'auto',
+                            display: 'flex',
+                            flexDirection: 'column-reverse',
+                          }}
+                          >
+                            <InfiniteScroll 
+                                  inverse={true} //
+                                  hasMore={true}
+                                  dataLength={1}
+                                  scrollableTarget="scrollableDiv"
+                                  className="scroll-bar"
+                          >
+                                <Box>
+                                  <Divider>
+                                    <Chip label="2021-06-15" />
+                                  </Divider>
+                                  <List>
+                                    <ListItem disablePadding>
+                                    <ListItemIcon>
+                                        <Stack direction="row" spacing={1}>
+                                          <Avatar>H</Avatar>
+                                        </Stack>
+                                        </ListItemIcon>
+                                        <ListItemText>
+                                          <Typography>John</Typography>
+                                        </ListItemText>
+                                    </ListItem>
+                                  </List>
+                                  <Box className="content-chat">
+                                    <Typography>How Can I order the products?</Typography>
+                                    <List>
+                                      <ListItem disablePadding>
+                                          <Box className="box-image-cot">
+                                              <ListItem disablePadding>
+                                              <ListItemIcon>
+                                              <Stack direction="row" spacing={1}>
+                                                <SiMicrosoftexcel className="icon-excel"></SiMicrosoftexcel>
+                                              </Stack>
+                                              </ListItemIcon>
+                                              <ListItemText>
+                                                <Typography>list.xls</Typography>
+                                              </ListItemText>   
+                                          </ListItem>
+                                          </Box>
+                                           
+                                          <Box className="box-image-cot">
+                                            <Button variant="outlined"  className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
+                                          </Box> 
+                                      </ListItem>
+
+                                      <ListItem disablePadding>
+                                          <Box className="box-image-cot-icon-image">
+                                            <img src={Hoasen} className="image-channel"></img>
+                                            <Typography className="image-text-channel">hoasennho.jpg</Typography>
+                                          </Box>
+                                           
+                                          <Box className="box-image-cot-image">
+                                            <Button variant="outlined"  className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
+                                          </Box>
+                                      </ListItem>
+                                  </List>
+                                  </Box>
+                                </Box>   
+                                  <Typography>How Can I order the products?</Typography>
+                                  <Typography>How Can I order the products?</Typography>
+                                  <Typography>How Can I order the products?</Typography>
+                                  <Typography>How Can I order the products?</Typography>
+                            </InfiniteScroll>
+                          </Box>
+                          
+                          <Box className="card2-template-note">
+                          <Card variant="outlined" className="tab2-card2-template">
+                              <React.Fragment className="card-insctuction">
+                                  {notecontentuser("KDH","10:00")}
+                                <Divider/> 
+                                <CardActions >
+                                    
+                                <List>
+                                  <ListItem>
+                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ligula, ornare sit amet porttitor quis, placerat quis lacus. Mauris lectus turpis, rutrum non placerat id, placerat et nisl. " />
+                                  </ListItem>
+                                  </List>
+                                </CardActions>
+                              </React.Fragment>
+                              </Card>
+                          </Box>
+                            
+                        
+                        
+                        </TabPanel>
                       </TabContext>
                     </Box>
                   </TabPanel>

@@ -505,6 +505,67 @@ nav.sidebar{
    
 }
 
+.text-downloadfile{
+    color: blue;
+}
+
+.content-chat{
+    padding-left: 7%;
+}
+
+
+
+.card2-template-note{
+    padding-top: 5%;
+}
+
+.icon-excel{
+   font-size: 30pt;
+   color: #007f00;
+}
+
+.btn-icon-download{
+    font-size: xx-small !important;
+    background-color : #ffffff !important;
+    border:#e5e5e5 !important; 
+}
+
+.icon-download{
+    font-size: 15pt;
+    color: #007f00;
+}
+
+.image-channel{
+    width: 90%;
+    margin-left: 5%;
+    
+}
+
+
+.image-text-channel{
+    padding-left: 5%;
+}
+
+.image-text-channel{
+    margin-left: 5%;
+}
+
+.box-image-cot{
+    width: 50%;
+    
+}
+.box-image-cot-icon{
+    width: 50%;
+}
+
+.box-image-cot-icon-image{
+    width: 50%;
+    padding-top: 5%;
+    border: solid #cccccc 1px;
+}
+
+
+
 
 
 
