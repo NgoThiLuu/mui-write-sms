@@ -754,8 +754,13 @@ export default function MiniDrawer() {
                                     
                                 </CardContent>
                                 <Divider/> 
-                                <CardActions className="content-card">
-                                  
+                                <CardActions >
+                                    <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
+                                </CardActions>
+                                <CardActions >
+                                    <Typography><FilePresentIcon></FilePresentIcon>abc.doc</Typography>
+                                    
+
                                 </CardActions>
                               </React.Fragment>
                               </Card>
