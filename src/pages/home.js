@@ -765,7 +765,7 @@ export default function MiniDrawer() {
                                         <ListItemIcon>
                                           <InboxIcon />
                                         </ListItemIcon>
-                                        <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                                        <ListItemText primary="Lorem test " />
                                       </ListItemButton>
                                     </ListItem>
                                     <ListItem disablePadding>
