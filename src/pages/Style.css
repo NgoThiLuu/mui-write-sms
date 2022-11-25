@@ -154,12 +154,7 @@ nav.sidebar{
     
 }
 
-.btn-back{
-    height: 75%  !important;
-    position: absolute ;
-    top: 11%;
-    
-}
+
 
 
 
@@ -168,6 +163,8 @@ nav.sidebar{
 .subject-sms{
     font-size: 30px;
     color:  rgb(35, 35, 155);
+    display: flex;
+    align-items: center;
     
 }
 
@@ -461,6 +458,11 @@ nav.sidebar{
 
 .tab-more-text-paper-note{
     background-color:#e5e5e5 !important;
+    display: flex;
+    justify-content: space-between;
+    width: 100% !important;
+    
+
 }
 
 
@@ -477,6 +479,7 @@ nav.sidebar{
 .tab3-tab-more-btn-attachfile{
     background-color:#e5e5e5 !important;
     border: #e5e5e5 !important;
+    
     
 }
 .tab-more-note-btn-post{
@@ -564,8 +567,74 @@ nav.sidebar{
     border: solid #cccccc 1px;
 }
 
+.box-image-line{
+    padding-top: 5%;
+}
 
+.box-image-hours{
+    padding-left: 3%;
+}
+.chat-right{
+    display: flex;
+    justify-content: flex-end;
+   
+}
 
+.box-message{
+    width: 100% !important;
+}
+
+.box-message-image{
+    padding-left: 5%!important;
+    padding-right: 4% !important;
+    
+}
+
+.box-message-chat-content2{
+    padding-right: 5% !important;;
+}
+
+.box-message-image{
+    margin-bottom: 17% !important;
+}
+
+.tab-channel-icon-chat-message{
+    font-size: 25px!important;
+    width: 60%;
+    color: #999999;
+    display: flex;
+    justify-content: space-between;
+}
+
+.luuluu{
+    width: 100%;
+}
+.box-par-content{
+    width: 100%;
+}
+.ngoluu{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.hoa{
+    width: 50%;
+}
+.listbutton-chat{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-btn-mobile{
+    display: none  !important; 
+}
+
+.tab3-tab-more-list-btn-attachfile{
+    background-color:#444444 !important;
+    border: #e5e5e5 !important;
+    width: 30%;
+    font-size: 10%;
+}
 
 
 
@@ -602,6 +671,12 @@ nav.sidebar{
         float:'left',
     }
 
+    .tab-more-text-paper-note{
+        display: none  !important; 
+    }
+    .list-btn-mobile{
+        display: block !important; 
+    }
     
 
   }

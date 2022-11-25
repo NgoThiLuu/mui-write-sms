@@ -95,7 +95,16 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { SiMicrosoftexcel } from 'react-icons/si';
 import { HiOutlineDownload } from 'react-icons/hi';
 import Hoasen from './image/hoasennho.jpg';
-
+import Cachua from './image/cachua.jpg';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import { BiLink } from 'react-icons/bi';
+import { FaImage } from 'react-icons/fa';
+import { ImAttachment } from 'react-icons/im';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import TransformIcon from '@mui/icons-material/Transform';
+import { FiVideo } from 'react-icons/fi';
+import FaceIcon from '@mui/icons-material/Face';
 
 
 const drawerWidth = 240;
@@ -175,6 +184,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function MiniDrawer() {
+  const [valueluu, setValueluu] = React.useState(2);
+
+  const handleChangeluu = (event, newValue) => {
+    setValueluu(newValue);
+  };
+ 
+
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -241,29 +257,31 @@ export default function MiniDrawer() {
   };
 
 
-  
-  
-  function notecontentuser ($username,$time) {
-    return(
-                       
+
+
+
+  function notecontentuser($username, $time) {
+
+    return (
+
       <CardContent className="content-card">
         <Typography>{$username}<QueryBuilderIcon></QueryBuilderIcon>{$time}</Typography>
         <Typography className="text-template-content-hour" >
           <Button variant="outlined" className="tab-more-note-icon-pen"><CreateIcon></CreateIcon></Button>
           <Button variant="outlined" className="tab-more-note-icon-delete"><ClearIcon></ClearIcon></Button>
         </Typography>
-    </CardContent>
-  
-       
+      </CardContent>
+
+
     )
-}
+  }
 
 
-const [items, setItems]= React.useState([])
+  const [items, setItems] = React.useState([])
 
 
- 
- 
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -421,32 +439,33 @@ const [items, setItems]= React.useState([])
               }}
             >
 
-              <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
-                {/* <Button  variant="outlined" className="btn-back" size="small"><KeyboardBackspaceIcon /></Button> */}
-                <Button variant="outlined" className="btn-back" ><KeyboardBackspaceIcon /></Button>
-                <Divider sx={{ height: 30, m: 0.5 }} orientation="vertical" />
-                <Button>
-                  <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
 
-                    <Select
-                      className="active-list"
-                      value={age}
-                      onChange={handleChange}
-                      displayEmpty
-                      inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                      <MenuItem value="">
-                        <Typography>Activity</Typography>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Button>
-                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                <Button ><Typography className="subject-sms"><b>SMS Subject</b></Typography></Button>
-              </ButtonGroup>
+              <Stack
+                direction="row"
+                divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                spacing={2}
+              >
+                <Button variant="outlined"  ><KeyboardBackspaceIcon /></Button>
+                <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
+
+                  <Select
+                    className="active-list"
+                    value={age}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ 'aria-label': 'Without label' }}
+                  >
+                    <MenuItem value="">
+                      <Typography>Activity</Typography>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+                <Typography className="subject-sms"><b>SMS Subject</b></Typography>
+              </Stack>
+
             </Box>
           </Col>
 
@@ -468,8 +487,8 @@ const [items, setItems]= React.useState([])
               <ButtonGroup variant="none" aria-label="text button group" className="group-btn" >
                 <Button variant="outlined" className="btn-done" size="small">Done</Button>
                 <Button variant="outlined" className="btn-more" size="small">
-                  
-                   <div>
+
+                  <div>
                     <Button
                       id="basic-button"
                       aria-controls={openmenu ? 'basic-menu' : undefined}
@@ -490,7 +509,7 @@ const [items, setItems]= React.useState([])
                     >
                       <MenuItem onClick={handleClose}><FaRegClone></FaRegClone> Clone </MenuItem>
                       <MenuItem onClick={handleClose}><DeleteOutlineIcon></DeleteOutlineIcon> Delete </MenuItem>
-                      
+
                     </Menu>
                   </div>
 
@@ -582,34 +601,34 @@ const [items, setItems]= React.useState([])
           </Col>
           <Col sm={12} md={12} lg={6}>
             <Box sx={{ width: '100%', typography: 'body1' }}>
-                <TabContext value={value}>
-                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChangetab} aria-label="lab API tabs example">
-                      <Tab label="Insctuction" value="1" className="tab1-inctuction" />
-                      <Tab label="Timeline" value="2" className="tab2-timeline" />
-                      <Tab label="+ More" value="3" className="tab3-more" />
-                    </TabList>
-                  </Box>
-                  <TabPanel value="1">
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        // alignItems: 'center',
-                        '& > *': {
-                          m: 1,
-                        },
-                      }}
-                      className="box-tab1-insctuction"
-                      
-                    >
-                       <ButtonGroup size="large" aria-label="large button group" className="btn-tab1-insctuction" >
-                          <Button className="btntodo-tab1-insctuction"><Typography>Todo</Typography> </Button>
-                          <Button className="btndoing-tab1-insctuction"><Typography>Doing</Typography> </Button>
-                          <Button className="btndone-tab1-insctuction"><Typography>Done</Typography> </Button>
-                      </ButtonGroup>
-                      
-                      <Card variant="outlined" className="Card-template">
+              <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TabList onChange={handleChangetab} aria-label="lab API tabs example">
+                    <Tab label="Insctuction" value="1" className="tab1-inctuction" />
+                    <Tab label="Timeline" value="2" className="tab2-timeline" />
+                    <Tab label="+ More" value="3" className="tab3-more" />
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      // alignItems: 'center',
+                      '& > *': {
+                        m: 1,
+                      },
+                    }}
+                    className="box-tab1-insctuction"
+
+                  >
+                    <ButtonGroup size="large" aria-label="large button group" className="btn-tab1-insctuction" >
+                      <Button className="btntodo-tab1-insctuction"><Typography>Todo</Typography> </Button>
+                      <Button className="btndoing-tab1-insctuction"><Typography>Doing</Typography> </Button>
+                      <Button className="btndone-tab1-insctuction"><Typography>Done</Typography> </Button>
+                    </ButtonGroup>
+
+                    <Card variant="outlined" className="Card-template">
                       <React.Fragment className="card-insctuction">
                         <CardContent>
                           <ListItem>
@@ -632,180 +651,195 @@ const [items, setItems]= React.useState([])
                           <OutlinedInput className="text-content" placeholder="Content" />
                         </CardContent>
                       </React.Fragment>
-                      </Card>
-                    </Box>
-                  </TabPanel>
-                  <TabPanel value="2">
-                    <Divider className="divider-date"> 
-                      <Chip label="2021-03-17" variant="outlined" className="tab2-timeline-date" />
-                    </Divider>
+                    </Card>
+                  </Box>
+                </TabPanel>
+                <TabPanel value="2">
+                  <Divider className="divider-date">
+                    <Chip label="2021-03-17" variant="outlined" className="tab2-timeline-date" />
+                  </Divider>
 
 
 
-                <Box >
-                  <Grid container >
-                    <Divider  orientation="vertical" flexItem  >
+                  <Box >
+                    <Grid container >
+                      <Divider orientation="vertical" flexItem  >
                         <Avatar className="tab2-box-pen">
                           <CreateIcon className="tab2-icon-pen"></CreateIcon>
                         </Avatar>
-                    </Divider>
-                    <Grid item xs>
-                      <Card variant="outlined" className="tab2-card-template">
-                      <React.Fragment className="card-insctuction">
-                        <CardContent className="content-card">
-                            <Typography>Expected Duration was updated from <b>1 hour </b>to <b>1 day</b> by MSR</Typography>
-                            <Typography className="text-template-content-hour" >15:28</Typography>
-                        </CardContent>
-                      </React.Fragment>
-                      </Card>
+                      </Divider>
+                      <Grid item xs>
+                        <Card variant="outlined" className="tab2-card-template">
+                          <React.Fragment className="card-insctuction">
+                            <CardContent className="content-card">
+                              <Typography>Expected Duration was updated from <b>1 hour </b>to <b>1 day</b> by MSR</Typography>
+                              <Typography className="text-template-content-hour" >15:28</Typography>
+                            </CardContent>
+                          </React.Fragment>
+                        </Card>
+                      </Grid>
                     </Grid>
-                  </Grid>
                   </Box>
-              
+
 
                   <Box >
-                  <Grid container >
-                    <Divider  orientation="vertical" flexItem component="li" >
+                    <Grid container >
+                      <Divider orientation="vertical" flexItem component="li" >
                         <Avatar className="tab2-box-pen">
                           <MessageIcon className="tab2-icon-pen"></MessageIcon>
                         </Avatar>
-                    </Divider>
-                    <Grid item xs>
-                      <Card variant="outlined" className="tab2-card2-template">
-                      <React.Fragment className="card-insctuction">
-                        <CardContent className="content-card">
-                            <Typography>KDH noted <b>" The demo location is changed. "</b> </Typography>
-                            <Typography className="text-template-content-hour" >15:28</Typography>
-                        </CardContent>
-                      </React.Fragment>
-                      </Card>
+                      </Divider>
+                      <Grid item xs>
+                        <Card variant="outlined" className="tab2-card2-template">
+                          <React.Fragment className="card-insctuction">
+                            <CardContent className="content-card">
+                              <Typography>KDH noted <b>" The demo location is changed. "</b> </Typography>
+                              <Typography className="text-template-content-hour" >15:28</Typography>
+                            </CardContent>
+                          </React.Fragment>
+                        </Card>
+                      </Grid>
                     </Grid>
-                  </Grid>
                   </Box>
 
                   <Box >
-                  <Grid container >
-                    <Divider  orientation="vertical" flexItem component="li" >
+                    <Grid container >
+                      <Divider orientation="vertical" flexItem component="li" >
                         <Avatar className="tab2-box-pen">
                           <FilePresentIcon className="tab2-icon-pen"></FilePresentIcon>
                         </Avatar>
-                    </Divider>
-                    <Grid item xs>
-                      <Card variant="outlined" className="tab2-card2-template">
-                      <React.Fragment className="card-insctuction">
-                        <CardContent className="content-card">
-                            <Typography>MSR uploaded a file <b>report.doc</b></Typography>
-                            <Typography>15:28</Typography>
-                        </CardContent>
-                        <CardActions className="download-file-tab2">
-                            <Button variant="text" className="download-file"><DownloadIcon></DownloadIcon>Download</Button>
-                        </CardActions>
-                      </React.Fragment>
-                      
-                      </Card>
+                      </Divider>
+                      <Grid item xs>
+                        <Card variant="outlined" className="tab2-card2-template">
+                          <React.Fragment className="card-insctuction">
+                            <CardContent className="content-card">
+                              <Typography>MSR uploaded a file <b>report.doc</b></Typography>
+                              <Typography>15:28</Typography>
+                            </CardContent>
+                            <CardActions className="download-file-tab2">
+                              <Button variant="text" className="download-file"><DownloadIcon></DownloadIcon>Download</Button>
+                            </CardActions>
+                          </React.Fragment>
+
+                        </Card>
+                      </Grid>
                     </Grid>
-                  </Grid>
                   </Box>
-                  </TabPanel>
+                </TabPanel>
 
 
 
 
-                  <TabPanel value="3">
-                        
-                    <Box sx={{ width: '100%', typography: 'body1' }}>
-                      <TabContext value={valueaa}>
-                        <Box className="more-tab-two" sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                          <TabList onChange={handleChangetabmore} aria-label="lab API tabs example" className="more-tab-two">
-                            <Tab label="Note" value="1" className="more-tab-note" />
-                            <Tab label="TeamChannel" value="2" className="more-tab-teamchannel" />
-                          </TabList>
-                        </Box>
-                        <TabPanel value="1">
+                <TabPanel value="3">
+
+                  {/* <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <TabContext value={valueluu}>
+                      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <TabList onChange={handleChangeluu} aria-label="lab API tabs example" centered >
+                          <Tab label="Item One" value="1" />
+                          <Tab label="Item Two" value="2" />
+                          <Tab label="Item Three" value="3" />
+                        </TabList>
+                      </Box>
+                      <TabPanel value="1">Item One</TabPanel>
+                      <TabPanel value="2">Item Two</TabPanel>
+                      <TabPanel value="3">Item Three</TabPanel>
+                    </TabContext>
+                  </Box> */}
+
+
+
+
+                  <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <TabContext value={valueaa}>
+                      <Box className="more-tab-two" sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <TabList onChange={handleChangetabmore} aria-label="lab API tabs example" className="more-tab-two" centered>
+                          <Tab label="Note" value="1" className="more-tab-note" />
+                          <Tab label="TeamChannel" value="2" className="more-tab-teamchannel" />
+                        </TabList>
+                      </Box>
+                      <TabPanel value="1" >
                         <Box >
                           <Paper >
-                              <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
-                              <Divider />
-                              <ListItemButton className="tab-more-text-paper-note">
-                                <ListItemIcon>
-                                  <Button variant="outlined"  className="tab3-tab-more-btn-attachfile"><FilePresentIcon className="tab-more-icon-attachfile-note" ></FilePresentIcon></Button>
-                                  <Button variant="outlined" className="tab3-tab-more-btn-attachfile"><ImageIcon className="tab-more-icon-attachfile-note" ></ImageIcon></Button>
-                                </ListItemIcon>
-                                <ListItemText primary=" " />
-                                <Button variant="outlined" className="tab-more-note-btn-post">Post</Button>
-                              </ListItemButton>
+                            <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
+                            <Divider />
+                            <ListItemButton className="tab-more-text-paper-note">
+                              <ListItemIcon>
+                                <Button variant="outlined" className="tab3-tab-more-btn-attachfile"><FilePresentIcon className="tab-more-icon-attachfile-note" ></FilePresentIcon></Button>
+                                <Button variant="outlined" className="tab3-tab-more-btn-attachfile"><ImageIcon className="tab-more-icon-attachfile-note" ></ImageIcon></Button>
+                              </ListItemIcon>
+                              <ListItemText primary=" " />
+                              <Button variant="outlined" className="tab-more-note-btn-post">Post</Button>
+                            </ListItemButton>
                           </Paper>
                         </Box>
 
 
 
-
-                      
-
                         <Box >
                           <Grid container >
-                            <Divider  orientation="vertical" flexItem  >
-                              <Box  sx={{ p: 1, my: 1, border: '1px solid' }} className="tab3-box-date" >
-                                  2021-03-17
+                            <Divider orientation="vertical" flexItem  >
+                              <Box sx={{ p: 1, my: 1, border: '1px solid' }} className="tab3-box-date" >
+                                2021-03-17
                               </Box>
                             </Divider>
                             <Grid item xs>
                             </Grid>
                           </Grid>
                         </Box>
-              
+
 
                         <Grid container >
-                            <Divider  orientation="vertical" flexItem component="li" >
-                                <Avatar className="tab2-box-pen">
-                                <IconButton
-                                  size="large"
-                                  aria-haspopup="true"
-                                  color="inherit"
-                                >
-                                  <FcPortraitMode />
-                                </IconButton>
-                                </Avatar>
-                            </Divider>
-                            <Grid item xs>
-                              <Card variant="outlined" className="tab2-card2-template">
+                          <Divider orientation="vertical" flexItem component="li" >
+                            <Avatar className="tab2-box-pen">
+                              <IconButton
+                                size="large"
+                                aria-haspopup="true"
+                                color="inherit"
+                              >
+                                <FcPortraitMode />
+                              </IconButton>
+                            </Avatar>
+                          </Divider>
+                          <Grid item xs>
+                            <Card variant="outlined" className="tab2-card2-template">
                               <React.Fragment className="card-insctuction">
-                                  {notecontentuser("MSR","13:00")}
-                                <Divider/> 
+                                {notecontentuser("MSR", "13:00")}
+                                <Divider />
                                 <CardActions >
-                                    
-                                <List>
-                                  <ListItem>
-                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
-                                  </ListItem>
-                                  <ListItem disablePadding>
-                                    <ListItemButton>
-                                      <ListItemIcon>
-                                        <FilePresentIcon />
-                                      </ListItemIcon>
-                                      <ListItemText className="text-downloadfile">abc.doc </ListItemText>
-                                    </ListItemButton>
-                                  </ListItem>
-                                  <ListItem disablePadding>
-                                    <ListItemButton>
-                                      <ListItemIcon>
-                                        <FilePresentIcon />
-                                      </ListItemIcon>
-                                      <ListItemText className="text-downloadfile">def.pdf </ListItemText>
-                                    </ListItemButton>
-                                  </ListItem>
+
+                                  <List>
+                                    <ListItem>
+                                      <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                      <ListItemButton>
+                                        <ListItemIcon>
+                                          <FilePresentIcon />
+                                        </ListItemIcon>
+                                        <ListItemText className="text-downloadfile">abc.doc </ListItemText>
+                                      </ListItemButton>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                      <ListItemButton>
+                                        <ListItemIcon>
+                                          <FilePresentIcon />
+                                        </ListItemIcon>
+                                        <ListItemText className="text-downloadfile">def.pdf </ListItemText>
+                                      </ListItemButton>
+                                    </ListItem>
                                   </List>
-                                   
+
                                 </CardActions>
                               </React.Fragment>
-                              </Card>
-                            </Grid>
+                            </Card>
                           </Grid>
+                        </Grid>
 
                         <Box >
                           <Grid container >
-                            <Divider  orientation="vertical" flexItem component="li" >
-                                <Avatar className="tab2-box-pen">
+                            <Divider orientation="vertical" flexItem component="li" >
+                              <Avatar className="tab2-box-pen">
                                 <IconButton
                                   size="large"
                                   aria-haspopup="true"
@@ -813,133 +847,361 @@ const [items, setItems]= React.useState([])
                                 >
                                   <FcPortraitMode />
                                 </IconButton>
-                                </Avatar>
+                              </Avatar>
                             </Divider>
                             <Grid item xs>
                               <Card variant="outlined" className="tab2-card2-template">
-                              <React.Fragment className="card-insctuction">
-                                  {notecontentuser("KDH","10:00")}
-                                <Divider/> 
-                                <CardActions >
-                                    
-                                <List>
-                                  <ListItem>
-                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ligula, ornare sit amet porttitor quis, placerat quis lacus. Mauris lectus turpis, rutrum non placerat id, placerat et nisl. " />
-                                  </ListItem>
-                                  </List>
-                                </CardActions>
-                              </React.Fragment>
+                                <React.Fragment className="card-insctuction">
+                                  {notecontentuser("KDH", "10:00")}
+                                  <Divider />
+                                  <CardActions >
+
+                                    <List>
+                                      <ListItem>
+                                        <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ligula, ornare sit amet porttitor quis, placerat quis lacus. Mauris lectus turpis, rutrum non placerat id, placerat et nisl. " />
+                                      </ListItem>
+                                    </List>
+                                  </CardActions>
+                                </React.Fragment>
                               </Card>
                             </Grid>
                           </Grid>
                         </Box>
-                        
-                        
 
-                        
-                         
-                        </TabPanel>
-                        <TabPanel value="2">
+
+
+
+
+                      </TabPanel>
+                      <TabPanel value="2" >
+
+                        <Grid container >
                           <Box className="box-par-content"
                             style={{
-                            height: 400,
-                            overflow: 'auto',
-                            display: 'flex',
-                            flexDirection: 'column-reverse',
-                          }}
-                          >
-                            <InfiniteScroll 
-                                  inverse={true} //
-                                  hasMore={true}
-                                  dataLength={1}
-                                  scrollableTarget="scrollableDiv"
-                                  className="scroll-bar"
-                          >
-                                <Box>
-                                  <Divider>
-                                    <Chip label="2021-06-15" />
-                                  </Divider>
+                              height: 500,
+                              overflow: 'auto',
+                              display: 'flex',
+                              flexDirection: 'column-reverse',
+                            }}>
+                            <InfiniteScroll
+                              inverse={true} //
+                              hasMore={true}
+                              dataLength={1}
+                              scrollableTarget="scrollableDiv"
+                              className="scroll-bar" >
+                              <Box >
+                                <Divider>
+                                  <Chip label="2021-06-15" />
+                                </Divider>
+                                <List>
+                                  <ListItem disablePadding>
+                                    <ListItemIcon>
+                                      <Stack direction="row" spacing={1}>
+                                        <Avatar>H</Avatar>
+                                      </Stack>
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                      <Typography>John</Typography>
+                                    </ListItemText>
+                                  </ListItem>
+                                </List>
+                                <Box className="content-chat">
+                                  <Typography>How Can I order the products?</Typography>
                                   <List>
                                     <ListItem disablePadding>
-                                    <ListItemIcon>
-                                        <Stack direction="row" spacing={1}>
-                                          <Avatar>H</Avatar>
-                                        </Stack>
-                                        </ListItemIcon>
-                                        <ListItemText>
-                                          <Typography>John</Typography>
-                                        </ListItemText>
-                                    </ListItem>
-                                  </List>
-                                  <Box className="content-chat">
-                                    <Typography>How Can I order the products?</Typography>
-                                    <List>
-                                      <ListItem disablePadding>
-                                          <Box className="box-image-cot">
-                                              <ListItem disablePadding>
-                                              <ListItemIcon>
-                                              <Stack direction="row" spacing={1}>
-                                                <SiMicrosoftexcel className="icon-excel"></SiMicrosoftexcel>
-                                              </Stack>
-                                              </ListItemIcon>
-                                              <ListItemText>
-                                                <Typography>list.xls</Typography>
-                                              </ListItemText>   
-                                          </ListItem>
-                                          </Box>
-                                           
-                                          <Box className="box-image-cot">
-                                            <Button variant="outlined"  className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
-                                          </Box> 
-                                      </ListItem>
+                                      <Box className="box-image-cot">
+                                        <ListItem disablePadding>
+                                          <ListItemIcon>
+                                            <Stack direction="row" spacing={1}>
+                                              <SiMicrosoftexcel className="icon-excel"></SiMicrosoftexcel>
+                                            </Stack>
+                                          </ListItemIcon>
+                                          <ListItemText>
+                                            <Typography>list.xls</Typography>
+                                          </ListItemText>
+                                        </ListItem>
+                                      </Box>
 
-                                      <ListItem disablePadding>
-                                          <Box className="box-image-cot-icon-image">
-                                            <img src={Hoasen} className="image-channel"></img>
-                                            <Typography className="image-text-channel">hoasennho.jpg</Typography>
-                                          </Box>
-                                           
-                                          <Box className="box-image-cot-image">
-                                            <Button variant="outlined"  className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
-                                          </Box>
-                                      </ListItem>
+                                      <Box className="box-image-cot">
+                                        <Button variant="outlined" className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
+                                      </Box>
+                                    </ListItem>
+
+                                    <ListItem disablePadding className="box-image-line" >
+                                      <Box className="box-image-cot-icon-image">
+                                        <Paper>
+                                          <img src={Hoasen} className="image-channel"></img>
+                                          <Typography className="image-text-channel">hoasennho.jpg</Typography>
+                                        </Paper>
+
+                                      </Box>
+
+                                      <Box className="box-image-cot-image">
+                                        <Button variant="outlined" className="btn-icon-download"><HiOutlineDownload className="icon-download"></HiOutlineDownload></Button>
+                                      </Box>
+                                    </ListItem>
+
                                   </List>
-                                  </Box>
-                                </Box>   
-                                  <Typography>How Can I order the products?</Typography>
-                                  <Typography>How Can I order the products?</Typography>
-                                  <Typography>How Can I order the products?</Typography>
-                                  <Typography>How Can I order the products?</Typography>
-                            </InfiniteScroll>
-                          </Box>
-                          
-                          <Box className="card2-template-note">
-                          <Card variant="outlined" className="tab2-card2-template">
-                              <React.Fragment className="card-insctuction">
-                                  {notecontentuser("KDH","10:00")}
-                                <Divider/> 
-                                <CardActions >
-                                    
+                                </Box>
+                              </Box>
+                              <Typography className="box-image-hours">15:30</Typography>
+                              <Box className="chat-right">
                                 <List>
-                                  <ListItem>
-                                  <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ligula, ornare sit amet porttitor quis, placerat quis lacus. Mauris lectus turpis, rutrum non placerat id, placerat et nisl. " />
+                                  <ListItem disablePadding>
+                                    <Box className="box-message">
+                                      <ListItem disablePadding>
+
+                                        <Alert icon={false} severity="success" className="box-message-chat content">
+                                          <Typography>KDH</Typography>
+                                          <Typography>Let me create a ticket for you</Typography>
+                                        </Alert>
+
+                                      </ListItem>
+                                    </Box>
+                                    <Box className="box-message-image">
+                                      <Avatar className="avatar-chat"><FcPortraitMode /></Avatar>
+                                    </Box>
+
                                   </ListItem>
-                                  </List>
-                                </CardActions>
-                              </React.Fragment>
-                              </Card>
-                          </Box>
+                                  <Typography>15:30</Typography>
+                                </List>
+                              </Box>
+                              <Divider><Chip label="Today" /></Divider>
+                              <List>
+                                <ListItem disablePadding>
+                                  <ListItemIcon>
+                                    <Stack direction="row" spacing={1}>
+                                      <Avatar>K</Avatar>
+                                    </Stack>
+                                  </ListItemIcon>
+                                  <ListItemText>
+                                    <Typography>Katherine</Typography>
+                                  </ListItemText>
+                                </ListItem>
+                              </List>
+                              <Box className="content-chat">
+                                <Typography>Hello</Typography>
+                                <List>
+                                  <ListItemText>
+                                    <Typography>Im interested in hearing more about the new features.</Typography>
+                                  </ListItemText>
+
+
+                                </List>
+                              </Box>
+                              <Typography className="box-image-hours">15:30</Typography>
+                              <Box className="chat-right">
+                                <List>
+                                  <ListItem disablePadding>
+                                    <Box className="box-message">
+                                      <ListItem disablePadding>
+
+                                        <Alert icon={false} severity="success" className="box-message-chat content">
+                                          <Typography>MSR</Typography>
+                                          <Typography>Let me create a ticket for you</Typography>
+                                        </Alert>
+
+                                      </ListItem>
+                                    </Box>
+                                    <Box className="box-message-image">
+                                      <Avatar alt="Remy Sharp" src={Cachua} />
+                                    </Box>
+                                  </ListItem>
+                                  <Typography>15:30</Typography>
+
+                                  <ListItem disablePadding>
+                                    <Box className="box-message">
+                                      <ListItem disablePadding>
+
+                                        <Alert icon={false} severity="success" className="box-message-chat-content2">
+                                          <Typography>MSR</Typography>
+                                          <Typography>Let me create a ticket for you</Typography>
+                                        </Alert>
+
+                                      </ListItem>
+                                    </Box>
+
+                                  </ListItem>
+                                </List>
+                              </Box>
+                            </InfiniteScroll>
                             
+
+                          </Box>
+                          <Paper className="luuluu">
+                              <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
+                              <Divider />
+                              <ListItemButton className="tab-more-text-paper-note">
+                                <ListItemIcon className="listbutton-chat">
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FormatBoldIcon className="tab-channel-icon-chat-message" ></FormatBoldIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FormatItalicIcon className="tab-channel-icon-chat-message" ></FormatItalicIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <BiLink className="tab-channel-icon-chat-message" ></BiLink>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <ImageIcon className="tab-channel-icon-chat-message" ></ImageIcon>
+                                </IconButton>
+                               
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <ImAttachment className="tab-channel-icon-chat-message" ></ImAttachment>
+                                </IconButton>
+                                <Divider orientation="vertical" flexItem  color="Brown"/>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <AlternateEmailIcon className="tab-channel-icon-chat-message" ></AlternateEmailIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FaceIcon className="tab-channel-icon-chat-message" ></FaceIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <TransformIcon className="tab-channel-icon-chat-message" ></TransformIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FiVideo className="tab-channel-icon-chat-message" ></FiVideo>
+                                </IconButton>
+                                </ListItemIcon>
+                              </ListItemButton>
+
+                              <ListItemButton className="list-btn-mobile">
+                                <ListItemIcon className="listbutton-chat">
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FormatBoldIcon className="tab-channel-icon-chat-message" ></FormatBoldIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FormatItalicIcon className="tab-channel-icon-chat-message" ></FormatItalicIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <BiLink className="tab-channel-icon-chat-message" ></BiLink>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <ImageIcon className="tab-channel-icon-chat-message" ></ImageIcon>
+                                </IconButton>
+                               
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <ImAttachment className="tab-channel-icon-chat-message" ></ImAttachment>
+                                </IconButton>
+                                <Divider orientation="vertical" flexItem  color="Brown"/>
+                                </ListItemIcon>
+
+
+
+
+                                <ListItemIcon className="listbutton-chat">
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <AlternateEmailIcon className="tab-channel-icon-chat-message" ></AlternateEmailIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FaceIcon className="tab-channel-icon-chat-message" ></FaceIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <TransformIcon className="tab-channel-icon-chat-message" ></TransformIcon>
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  aria-haspopup="true"
+                                  color="inherit"
+                                >
+                                  <FiVideo className="tab-channel-icon-chat-message" ></FiVideo>
+                                </IconButton>
+                                </ListItemIcon>
+                              </ListItemButton>
+
+                          </Paper>
+
+                        </Grid>
+
+
                         
-                        
-                        </TabPanel>
-                      </TabContext>
-                    </Box>
-                  </TabPanel>
-                </TabContext>
+
+                      </TabPanel>
+
+
+                    </TabContext>
+
+                  </Box>
+
+
+
+
+                </TabPanel>
+              </TabContext>
             </Box>
-            
+
           </Col>
+
+
+
           <Col sm={12} md={12} lg={3}>
             <Typography>Test3</Typography>
           </Col>
@@ -947,7 +1209,7 @@ const [items, setItems]= React.useState([])
 
 
 
-        
+
       </Box>
     </Box>
   );
