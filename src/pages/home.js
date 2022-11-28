@@ -105,13 +105,78 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import TransformIcon from '@mui/icons-material/Transform';
 import { FiVideo } from 'react-icons/fi';
 import FaceIcon from '@mui/icons-material/Face';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import Tooltip from '@mui/material/Tooltip';
+import EmailIcon from '@mui/icons-material/Email';
+import AodIcon from '@mui/icons-material/Aod';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { BiMessageRounded } from 'react-icons/bi';
+import { GrDocumentWord } from 'react-icons/gr';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import CloseIcon from '@mui/icons-material/Close';
+
+
+
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
+
+function BootstrapDialogTitle(props) {
+  const { children, onClose, ...other } = props;
+
+  return (
+    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+      {children}
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </DialogTitle>
+  );
+}
+
+BootstrapDialogTitle.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+};
+
+
+
+
+
+
 
 
 const drawerWidth = 240;
-
-
-
-
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -184,13 +249,25 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function MiniDrawer() {
+  const [opencreate, setOpencreate] = React.useState(false);
+
+  const handleClickOpencreate = () => {
+    setOpencreate(true);
+  };
+  const handleClosecreate = () => {
+    setOpencreate(false);
+  };
+
+
+
+
+
+
   const [valueluu, setValueluu] = React.useState(2);
 
   const handleChangeluu = (event, newValue) => {
     setValueluu(newValue);
   };
- 
-
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -257,6 +334,25 @@ export default function MiniDrawer() {
   };
 
 
+  const Accordion = styled((props) => (
+    <MuiAccordion disableGutters elevation={0} square {...props} />
+  ))(({ theme }) => ({
+    border: `1px solid ${theme.palette.divider}`,
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&:before': {
+      display: 'none',
+    },
+  }));
+
+
+
+
+
+
+
+
 
 
 
@@ -275,6 +371,8 @@ export default function MiniDrawer() {
 
     )
   }
+
+
 
 
   const [items, setItems] = React.useState([])
@@ -515,7 +613,40 @@ export default function MiniDrawer() {
 
 
                 </Button>
-                <Button variant="outlined" className="btn-new" size="small">+ New</Button>
+                <Button variant="outlined" className="btn-new" size="small" onClick={handleClickOpencreate}>+ New</Button>
+                <BootstrapDialog
+                  onClose={handleClosecreate}
+                  aria-labelledby="customized-dialog-title"
+                  open={opencreate}
+                >
+                  <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClosecreate}>
+                    Create SMS
+                  </BootstrapDialogTitle>
+                  <DialogContent dividers>
+                    <Typography gutterBottom>
+                       Direction
+                    </Typography>
+                  <Typography gutterBottom>
+                      Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  </Typography>
+                    <Typography gutterBottom>
+                      Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+                      magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+                      ullamcorper nulla non metus auctor fringilla.
+                  </Typography>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button autoFocus onClick={handleClosecreate}>
+                      Cancel
+                    </Button>
+                    <Button autoFocus onClick={handleClosecreate}>
+                      Save changes
+                    </Button>
+                  </DialogActions>
+                </BootstrapDialog>
+
+
                 <Avatar sx={{ bgcolor: green[500] }}
                   alt="Remy Sharp"
                   src="/broken-image.jpg" className="avatar" > </Avatar>
@@ -732,20 +863,6 @@ export default function MiniDrawer() {
 
                 <TabPanel value="3">
 
-                  {/* <Box sx={{ width: '100%', typography: 'body1' }}>
-                    <TabContext value={valueluu}>
-                      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <TabList onChange={handleChangeluu} aria-label="lab API tabs example" centered >
-                          <Tab label="Item One" value="1" />
-                          <Tab label="Item Two" value="2" />
-                          <Tab label="Item Three" value="3" />
-                        </TabList>
-                      </Box>
-                      <TabPanel value="1">Item One</TabPanel>
-                      <TabPanel value="2">Item Two</TabPanel>
-                      <TabPanel value="3">Item Three</TabPanel>
-                    </TabContext>
-                  </Box> */}
 
 
 
@@ -1010,29 +1127,30 @@ export default function MiniDrawer() {
                                   <Typography>15:30</Typography>
 
                                   <ListItem disablePadding>
-                                    <Box className="box-message">
+                                    <Box className="box-message-two">
                                       <ListItem disablePadding>
 
                                         <Alert icon={false} severity="success" className="box-message-chat-content2">
                                           <Typography>MSR</Typography>
-                                          <Typography>Let me create a ticket for you</Typography>
+                                          <Typography className="txt-message">Let me create a ticket for you</Typography>
                                         </Alert>
 
                                       </ListItem>
+                                      <Typography>15:30</Typography>
                                     </Box>
 
                                   </ListItem>
                                 </List>
                               </Box>
                             </InfiniteScroll>
-                            
+
 
                           </Box>
                           <Paper className="luuluu">
-                              <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
-                              <Divider />
-                              <ListItemButton className="tab-more-text-paper-note">
-                                <ListItemIcon className="listbutton-chat">
+                            <OutlinedInput className="tab-more-text-content-note" placeholder="Enter a message" />
+                            <Divider />
+                            <ListItemButton className="tab-more-text-paper-note">
+                              <ListItemIcon className="listbutton-chat">
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1061,7 +1179,7 @@ export default function MiniDrawer() {
                                 >
                                   <ImageIcon className="tab-channel-icon-chat-message" ></ImageIcon>
                                 </IconButton>
-                               
+
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1069,7 +1187,7 @@ export default function MiniDrawer() {
                                 >
                                   <ImAttachment className="tab-channel-icon-chat-message" ></ImAttachment>
                                 </IconButton>
-                                <Divider orientation="vertical" flexItem  color="Brown"/>
+                                <Divider orientation="vertical" flexItem color="Brown" />
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1098,11 +1216,11 @@ export default function MiniDrawer() {
                                 >
                                   <FiVideo className="tab-channel-icon-chat-message" ></FiVideo>
                                 </IconButton>
-                                </ListItemIcon>
-                              </ListItemButton>
+                              </ListItemIcon>
+                            </ListItemButton>
 
-                              <ListItemButton className="list-btn-mobile">
-                                <ListItemIcon className="listbutton-chat">
+                            <ListItemButton className="list-btn-mobile">
+                              <ListItemIcon className="listbutton-chat">
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1131,7 +1249,7 @@ export default function MiniDrawer() {
                                 >
                                   <ImageIcon className="tab-channel-icon-chat-message" ></ImageIcon>
                                 </IconButton>
-                               
+
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1139,13 +1257,13 @@ export default function MiniDrawer() {
                                 >
                                   <ImAttachment className="tab-channel-icon-chat-message" ></ImAttachment>
                                 </IconButton>
-                                <Divider orientation="vertical" flexItem  color="Brown"/>
-                                </ListItemIcon>
+                                <Divider orientation="vertical" flexItem color="Brown" />
+                              </ListItemIcon>
 
 
 
 
-                                <ListItemIcon className="listbutton-chat">
+                              <ListItemIcon className="listbutton-chat">
                                 <IconButton
                                   size="small"
                                   aria-haspopup="true"
@@ -1174,15 +1292,15 @@ export default function MiniDrawer() {
                                 >
                                   <FiVideo className="tab-channel-icon-chat-message" ></FiVideo>
                                 </IconButton>
-                                </ListItemIcon>
-                              </ListItemButton>
+                              </ListItemIcon>
+                            </ListItemButton>
 
                           </Paper>
 
                         </Grid>
 
 
-                        
+
 
                       </TabPanel>
 
@@ -1201,9 +1319,444 @@ export default function MiniDrawer() {
           </Col>
 
 
-
           <Col sm={12} md={12} lg={3}>
-            <Typography>Test3</Typography>
+            <Box className="card-custom">
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <DragIndicatorIcon /><Typography className="txt-customer">Customer</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+
+                  <Grid container justifyContent="center">
+                    <Grid item xs={6}>
+
+                      <Tooltip placement="left-end">
+
+                        <Box className="username1-custom">
+                          <Avatar alt="Remy Sharp" src={Cachua} />
+                          <Typography className="txt-name-user">Allan Rey Palban</Typography>
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={6} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send Mail"
+                            >
+                              <EmailIcon className="icon-message" ></EmailIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send SMS"
+                            >
+                              <AodIcon className="icon-phone" ></AodIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+                          </Box>
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+
+                  <Grid container justifyContent="center" className="line-username">
+                    <Grid item xs={6}>
+
+                      <Tooltip placement="left-end">
+                        <Box className="username1-custom">
+                          <Avatar alt="Remy Sharp" />
+                          <Typography className="txt-name-user">Situmay</Typography>
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={6} alignItems="flex-end" direction="column" >
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box >
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send Mail"
+                            >
+                              <EmailIcon className="icon-message" ></EmailIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send SMS"
+                            >
+                              <AodIcon className="icon-phone" ></AodIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+
+                          </Box>
+
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+
+
+
+
+
+                  <Grid container justifyContent="center" className="paper-click-user">
+                    <Grid item xs={10} >
+
+                      <Tooltip placement="left-end">
+                        <Box >
+                          <OutlinedInput className="txt-type-or-click" placeholder="Type or click to add an user" />
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={2} direction="column" className="icon-click-user">
+                      <Grid item >
+                        <Tooltip placement="right-start" >
+                          <Box className="icon-user">
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                            >
+                              <PersonOutlineIcon  ></PersonOutlineIcon>
+                            </IconButton>
+                          </Box>
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <DragIndicatorIcon /><Typography className="txt-customer">Assigned Rep</Typography>
+                </AccordionSummary>
+                <AccordionDetails >
+                  <Grid container justifyContent="center" className="box-assigned-rep">
+                    <Grid item xs={6}>
+
+                      <Tooltip placement="left-end">
+                        <Box className="avatar-assign-box">
+                          <Avatar alt="Remy Sharp" src={Hoasen} className="avatar-assign-image" />
+                          <Typography className="txt-name-user">Situmay</Typography>
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={6} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <IconButton
+                            size="small"
+                            aria-haspopup="true"
+                            color="inherit"
+                            title="Delete"
+                            className="icon-right"
+                          >
+                            <ClearIcon className="icon-clear-radius" ></ClearIcon>
+                          </IconButton>
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+                  <Grid container justifyContent="center" className="line-username">
+                    <Grid item xs={6}>
+
+                      <Tooltip placement="left-end">
+                        <Box className="username1-custom">
+                          <Avatar alt="Remy Sharp" />
+                          <Typography className="txt-name-user">KDH</Typography>
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={6} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send Mail"
+                            >
+                              <EmailIcon className="icon-message" ></EmailIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send SMS"
+                            >
+                              <BiMessageRounded className="icon-phone" ></BiMessageRounded>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+
+                          </Box>
+
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+
+
+
+
+
+
+                  </Grid>
+                  <Grid container justifyContent="center" className="paper-click-user">
+                    <Grid item xs={10} >
+
+                      <Tooltip placement="left-end">
+                        <Box >
+                          <OutlinedInput className="txt-type-or-click" placeholder="Type or click to add an user" />
+                        </Box>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={2} direction="column" className="icon-click-user" >
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box className="icon-user">
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                            >
+                              <PersonOutlineIcon  ></PersonOutlineIcon>
+                            </IconButton>
+                          </Box>
+
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+
+
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <DragIndicatorIcon /><Typography className="txt-customer">Attachments</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid container justifyContent="center">
+                    <Grid item xs={9}>
+
+                      <Tooltip placement="left-end">
+                        <Box className="username1-custom">
+                          <Box>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+
+                            >
+                              <GrDocumentWord className="icon-filedoc"></GrDocumentWord>
+                            </IconButton>
+                          </Box>
+
+
+                          <Box className="box-text-attachmentfile">
+                            <Typography>계약서계약서</Typography>
+                            <Typography>(18.94 KB) </Typography>
+                          </Box>
+                        </Box>
+
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={3} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box>
+
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send SMS"
+                            >
+                              <DownloadIcon className="icon-download" ></DownloadIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+                          </Box>
+                        </Tooltip>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
+                  <Grid container justifyContent="center">
+                    <Grid item xs={9}>
+
+                      <Tooltip placement="left-end">
+                        <Box className="username1-custom">
+                          <Box>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+
+                            >
+                              <GrDocumentWord className="icon-filedoc"></GrDocumentWord>
+                            </IconButton>
+                          </Box>
+
+
+                          <Box className="box-text-attachmentfile">
+                            <Typography>계약서계약서</Typography>
+                            <Typography>(18.94 KB) </Typography>
+                          </Box>
+                        </Box>
+
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={3} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip placement="right-start">
+                          <Box>
+
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Send SMS"
+                            >
+                              <DownloadIcon className="icon-download" ></DownloadIcon>
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+                          </Box>
+                        </Tooltip>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Button className="btn-download-all-file">
+                    <AiOutlineCloudUpload className="icon-clouddisk"></AiOutlineCloudUpload>
+                    <Typography>Drag &#38; Drop Files </Typography>
+                  </Button>
+                  <Button >
+                    <SystemUpdateAltIcon className="icon-download-clod"></SystemUpdateAltIcon>
+                    <Typography>Download All </Typography>
+                  </Button>
+
+
+
+
+
+
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <DragIndicatorIcon /><Typography className="txt-customer">Product</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid container justifyContent="center">
+                    <Grid item xs={6}>
+                      <Tooltip placement="left-end">
+                        <Button >
+                          <Typography>Woman Peacoat </Typography>
+                        </Button>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item container xs={6} alignItems="flex-end" direction="column">
+                      <Grid item>
+                        <Tooltip title="Add" placement="right-start">
+                          <Box>
+                            <IconButton
+                              size="small"
+                              aria-haspopup="true"
+                              color="inherit"
+                              title="Delete"
+                            >
+                              <ClearIcon className="icon-clear" ></ClearIcon>
+                            </IconButton>
+                          </Box>
+                        </Tooltip>
+                      </Grid>
+
+                    </Grid>
+                  </Grid>
+
+
+
+
+
+                </AccordionDetails>
+              </Accordion>
+
+            </Box>
           </Col>
         </Row>
 

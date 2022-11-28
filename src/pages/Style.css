@@ -586,7 +586,7 @@ nav.sidebar{
 
 .box-message-image{
     padding-left: 5%!important;
-    padding-right: 4% !important;
+    padding-right: 2% !important;
     
 }
 
@@ -605,6 +605,7 @@ nav.sidebar{
     display: flex;
     justify-content: space-between;
 }
+
 
 .luuluu{
     width: 100%;
@@ -634,6 +635,147 @@ nav.sidebar{
     border: #e5e5e5 !important;
     width: 30%;
     font-size: 10%;
+}
+.txt-customer{
+    font-weight: bold !important;
+}
+.username1-custom{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.icon-message{
+    color: #00CCCC;
+    font-size: 20px !important;
+}
+.icon-phone{
+    color: #FECAA0;
+    font-size: 20px !important;
+}
+
+.icon-clear{
+    color: red;
+    font-size: 20px !important;
+}
+.txt-name-user{
+    padding-left: 5%;
+}
+
+.line-username{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.box-type-or-click{
+    padding-top: 5%;
+}
+.paper-click-user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid gray 1px;
+    
+}
+
+.txt-type-or-click{
+    width: 100%;
+    height: 40px !important;
+}
+
+.icon-user{
+    
+    justify-content: center !important;
+    
+}
+
+
+.icon-click-user{
+    align-items: center;
+}
+
+.icon-right{
+   justify-content: space-between;
+   display: flex;
+   
+}
+
+.group-icon{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-assigned-rep{
+    border-radius: 15px !important;
+    background-color: #FFC107;
+}
+.avatar-assign-box{
+    padding-left: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.avatar-assign-image{
+    font-size: 10px !important;
+   
+}
+
+.icon-clear-radius{
+    
+    color: red;
+    font-size: 20px !important;
+}
+
+.box-text-attachmentfile{
+    padding-left: 5%;
+}
+.icon-filedoc{
+    font-size: 25px;
+    color: red !important;
+}
+
+.btn-download-all-file{
+    width: 100%;
+    border: dotted  gray 1px !important;
+    color: gray !important;
+}
+
+
+.icon-download{
+    color:blue;
+    font-size: 20px !important;
+}
+
+.icon-clouddisk{
+    font-size: 25px;
+    padding-right: 5%;
+}
+
+.icon-download-clod{
+    color: gray;
+    font-size: 30px !important;
+    padding-right: 5%;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+    
+    
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+    
+    
+::-webkit-scrollbar-thumb {
+    background: #777;
+    border-radius: 4px ;
+    }
+    
+::-webkit-scrollbar-thumb:hover {
+    background: #8392A5;
 }
 
 
