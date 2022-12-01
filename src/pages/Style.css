@@ -718,7 +718,14 @@ nav.sidebar{
 }
 .avatar-assign-image{
     font-size: 10px !important;
-   
+    width: 28px!important;
+    height: 28px!important;
+    
+}
+
+.icon-avataruser{
+    display: flex;
+    justify-content: space-between;
 }
 
 .icon-clear-radius{
@@ -757,6 +764,95 @@ nav.sidebar{
     font-size: 30px !important;
     padding-right: 5%;
 }
+
+.radio-tab{
+    width: 30% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+
+.incoming-date{
+    width: 100%;
+}
+
+.title-name-sms{
+    color: gray;
+}
+
+
+.input-title{
+    width: 100% ;
+}
+
+.content-sms{
+    padding-bottom: 3%;
+    padding-left: 3%;
+}
+
+.content-sms-Descrip{
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-top: 2%;
+}
+
+.inputdescrip{
+    width: 100%;
+}
+
+.txtsend{
+    color: black;
+}
+
+.active-list-sms{
+    width: 100% !important;
+}
+
+.gr-stack{
+    width: 100% !important;
+}
+.content-template{
+    font-weight: bold;
+}
+
+.useravatar{
+    display: flex;
+    justify-content: space-between;
+}
+.avatar-assign-box-sms{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+}
+
+.username-sms{
+    padding-left: 1%;
+}
+
+.gr-stack-to-sms{
+    width: 100%!important;
+    height: 30px!important;
+}
+
+
+
+
+.active-list-sms-list-chip{
+    width: 100%!important;
+}
+
+
+.colorbtn{
+    color: honeydew !important;
+    background-color: green !important;
+}
+
+.btn-cancel{
+    position: absolute;
+    right: 3%;
+}
+
 
 
 ::-webkit-scrollbar {

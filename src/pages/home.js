@@ -69,6 +69,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import InputBase from '@mui/material/InputBase';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { FaRegClone } from 'react-icons/fa';
@@ -127,6 +128,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
+import Collapse from '@mui/material/Collapse';
+import Fade from '@mui/material/Fade';
+import Switch from '@mui/material/Switch';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormLabel from '@mui/material/FormLabel';
+import PhoneIcon from '@mui/icons-material/Phone';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import TextField from '@mui/material/TextField';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 
@@ -259,7 +270,171 @@ export default function MiniDrawer() {
   };
 
 
+ 
 
+
+
+
+
+
+  const [selectedValueradio, setSelectedValueradio] = React.useState('best_1');
+
+  const handleChangesms = (event) => {
+    setSelectedValueradio(event.target.value);
+  };
+  const [valueradiopa, setValueradiopa] = React.useState("");
+  const [errorradio, setErrorradio] = React.useState(false);
+  const [helperTextradio, setHelperTextradio] = React.useState(
+    <List className="incoming-date">
+          <ListItemText primary="Date" />
+          <Grid container justifyContent="center" className="paper-click-user">
+                <Grid item xs={10} >
+
+                  <Tooltip placement="left-end">
+                    <Box >
+                      <Paper>
+                        <InputBase className="txt-type-or-click" />
+                      </Paper>
+
+                    </Box>
+                  </Tooltip>
+                </Grid>
+                <Grid item container xs={2} direction="column" className="icon-click-user" >
+                  <Grid item>
+                    <Tooltip placement="right-start">
+                      <Box className="icon-user">
+                        <IconButton
+                          size="small"
+                          aria-haspopup="true"
+                          color="inherit"
+                        >
+                          <CalendarMonthIcon></CalendarMonthIcon>
+                        </IconButton>
+                      </Box>
+
+                    </Tooltip>
+                  </Grid>
+
+                </Grid>
+              </Grid>
+          
+        </List>
+  );
+
+  const handleChangeradiosms = (event) => {
+    let testValue = event.target.value;
+    setValueradiopa(testValue);
+    if (testValue === "best_1") {
+      setHelperTextradio(
+        <List className="incoming-date">
+          <ListItemText primary="Date" />
+          <Grid container justifyContent="center" className="paper-click-user">
+                <Grid item xs={10} >
+
+                  <Tooltip placement="left-end">
+                    <Box >
+                      <Paper>
+                        <InputBase className="txt-type-or-click" />
+                      </Paper>
+
+                    </Box>
+                  </Tooltip>
+                </Grid>
+                <Grid item container xs={2} direction="column" className="icon-click-user" >
+                  <Grid item>
+                    <Tooltip placement="right-start">
+                      <Box className="icon-user">
+                        <IconButton
+                          size="small"
+                          aria-haspopup="true"
+                          color="inherit"
+                        >
+                          <CalendarMonthIcon></CalendarMonthIcon>
+                        </IconButton>
+                      </Box>
+
+                    </Tooltip>
+                  </Grid>
+
+                </Grid>
+              </Grid>
+          
+        </List>
+          
+      );
+      setErrorradio(false);
+    } else if (testValue === "worst_1") {
+      setHelperTextradio(
+        <RadioGroup
+          row
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group"
+          defaultValue="sendnow"
+        >
+          <FormControlLabel className="txtsend" value="sendnow" control={<Radio />} label="Send Now" />
+          <FormControlLabel className="txtsend" value="schedule" control={<Radio />} label="Schedule" />
+        
+        </RadioGroup>
+      );
+      setErrorradio(true);
+    } else {
+      setHelperTextradio("Please select an option.");
+      setErrorradio(true);
+    }
+  };
+
+
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+  
+  const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+  ];
+
+
+
+  
+  function getStyles(name, personName, theme) {
+    return {
+      fontWeight:
+        personName.indexOf(name) === -1
+          ? theme.typography.fontWeightRegular
+          : theme.typography.fontWeightMedium,
+    };
+  }
+ 
+  const themeluu = useTheme();
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChangelistchip = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+
+ 
 
 
 
@@ -315,6 +490,12 @@ export default function MiniDrawer() {
     setValue(newValue);
   };
 
+
+  const [valueradio, setValueradio] = React.useState('1');
+
+  const handleChangeradio = (event, newValueradio) => {
+    setValueradio(newValueradio);
+  };
 
 
 
@@ -376,6 +557,15 @@ export default function MiniDrawer() {
 
 
   const [items, setItems] = React.useState([])
+
+  const [anchorElsavenew, setAnchorElsavenew] = React.useState(null);
+  const opensavenew = Boolean(anchorEl);
+  const handleClicksavenew = (event) => {
+    setAnchorElsavenew(event.currentTarget);
+  };
+  const handleClosesavenew = () => {
+    setAnchorElsavenew(null);
+  };
 
 
 
@@ -618,31 +808,319 @@ export default function MiniDrawer() {
                   onClose={handleClosecreate}
                   aria-labelledby="customized-dialog-title"
                   open={opencreate}
+                  className="trapdialog-sms"
+                  maxWidth="md"
                 >
                   <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClosecreate}>
                     Create SMS
-                  </BootstrapDialogTitle>
+                    </BootstrapDialogTitle>
                   <DialogContent dividers>
-                    <Typography gutterBottom>
-                       Direction
-                    </Typography>
-                  <Typography gutterBottom>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                  </Typography>
-                    <Typography gutterBottom>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-                      magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-                      ullamcorper nulla non metus auctor fringilla.
-                  </Typography>
+
+                    <form >
+                      <FormControl sx={{ m: 3 }} error={errorradio} variant="standard">
+                        <RadioGroup
+                          row
+                          aria-labelledby="demo-error-radios"
+                          name="quiz"
+                          value={value}
+                          onChange={handleChangeradiosms}
+                        >
+                          <FormControlLabel
+                            value="best_1"
+                            
+                            label="Incoming"
+                            control={
+                              <Radio checked={selectedValueradio === 'best_1'}
+                                onChange={handleChangesms}
+                                value="best_1"
+                                name="radio-buttons"
+                                inputProps={{ 'aria-label': 'A' }}
+                                className="Form-radio" />
+                              }
+                          />
+                          <FormControlLabel
+                            value="worst_1"
+                            label="Outgoing"
+                            control={
+                              <Radio checked={selectedValueradio === 'worst_1'}
+                                onChange={handleChangesms}
+                                value="worst_1"
+                                name="radio-buttons"
+                                inputProps={{ 'aria-label': 'B' }}
+                                className="Form-radio" />}
+                          />
+                        </RadioGroup>
+                        <FormHelperText>{helperTextradio}</FormHelperText>
+                      
+                      </FormControl>
+                    </form>
+
+
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        Subject
+                      </Typography>
+                      <OutlinedInput
+                        style={{
+                          height: 35,
+                        }}
+                        className="input-title"
+                      ></OutlinedInput>
+                    </Box>
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        Priority
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                        spacing={2}
+                        
+                      >
+                        <FormControl className="gr-stack" sx={{ m: 0, minWidth: 120 }} size="small" >
+
+                          <Select
+                            className="active-list-sms"
+                            value={age}
+                            onChange={handleChange}
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                          >
+                            <MenuItem value="">
+                              <em>Select</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                        </FormControl>
+
+                      </Stack>
+
+                    </Box>
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        Purpose
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                        spacing={2}
+                        
+                      >
+                        <FormControl className="gr-stack" sx={{ m: 0, minWidth: 120 }} size="small" >
+                          <Select
+                            className="active-list-sms"
+                            value={age}
+                            onChange={handleChange}
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                          >
+                            <MenuItem value="">
+                              <em>Select</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Stack>
+                    </Box>
+
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        SMS/LMS
+                      </Typography>
+                      <FormControl>
+                        <RadioGroup
+                          aria-labelledby="demo-radio-buttons-group-label"
+                          defaultValue="female"
+                          name="radio-buttons-group"
+                        >
+                          <FormControlLabel value="female" control={<Radio />} label="SMS - For short messages, up to 80 bytes can be sent (40 Korean characters, 80 English characters)." />
+                          <FormControlLabel value="male" control={<Radio />} label="LMS - For long messages, up to 2,000 bytes can be sent (1,000 Korean characters, 2,000 English characters)." />
+                        </RadioGroup>
+                      </FormControl>
+
+                    </Box>
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        Template
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                        spacing={2}
+                        
+                      >
+                        
+                        <FormControl className="gr-stack" sx={{ m: 0, minWidth: 120 }} size="small" >
+                          <Select
+                            className="active-list-sms"
+                            value={age}
+                            onChange={handleChange}
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                          >
+                            <MenuItem value="">
+                              <em>Select</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Stack>
+                    </Box>
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        Template
+                      </Typography>
+                      <Typography gutterBottom className="title-name-sms" className="content-template">
+                        Editor
+                      </Typography>
+                    </Box>
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        From
+                      </Typography>
+                      <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                        spacing={2}
+                        
+                      >
+                        <FormControl className="gr-stack" sx={{ m: 0, minWidth: 120 }} size="small"  >
+                          <Select
+                            className="active-list-sms"
+                            value={age}
+                            onChange={handleChange}
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                          >
+                            <MenuItem value="" className="useravatar">
+                              <Box className="avatar-assign-box-sms">
+                                <Avatar alt="Remy Sharp" src={Hoasen} className="avatar-assign-image" />
+                                <Typography className="username-sms">Situmay</Typography>
+                                <Box className="icon-avataruser">
+                                  <CreateIcon ></CreateIcon>
+                                </Box>
+                               
+                              </Box>
+                              
+                            </MenuItem>
+                            <MenuItem value={10}>Assign to me</MenuItem>
+                            <MenuItem value={20}>User A</MenuItem>
+                            <MenuItem value={30}>User B</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Stack>
+                    </Box>
+
+
+
+                    <Box className="content-sms">
+                      <Typography gutterBottom className="title-name-sms">
+                        To
+                      </Typography>
+                      <FormControl className="gr-stack-to-sms" sx={{ m: 1, width: 200 }}>
+                        
+                        <Select
+                          labelId="demo-multiple-chip-label"
+                          id="demo-multiple-chip"
+                          multiple
+                          value={personName}
+                          onChange={handleChangelistchip}
+                          renderValue={(selected) => (
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                              {selected.map((value) => (
+                                // <Chip key={value} label={value} />
+                                <Chip key={value} label={value}>
+                                  
+                                </Chip>
+                              ))}
+                            </Box>
+                          )}
+                          MenuProps={MenuProps}
+                        >
+                          {names.map((name) => (
+                            <MenuItem
+                              key={name}
+                              value={name}
+                              style={getStyles(name, personName, theme)}
+                            >
+                              {name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </Box>
+
+                    <Box className="content-sms-Descrip">
+                      <Typography gutterBottom className="title-name-sms">
+                        Description
+                      </Typography>
+                      <OutlinedInput className="inputdescrip"></OutlinedInput>
+                    </Box>
+
+
+
+
+
+
+
+
+
                   </DialogContent>
                   <DialogActions>
-                    <Button autoFocus onClick={handleClosecreate}>
+                    <Button className="btn-cancel" variant="outlined" aria-label="outlined button group"  autoFocus onClick={handleClosecreate}>
                       Cancel
-                    </Button>
-                    <Button autoFocus onClick={handleClosecreate}>
-                      Save changes
-                    </Button>
+                      </Button>
+                      <ButtonGroup variant="outlined" aria-label="outlined button group" >
+                        <Button autoFocus onClick={handleClosecreate} className="colorbtn">
+                          Save 
+                        </Button>
+                        <Button className="colorbtn"
+                          
+                        ><ExpandLessIcon></ExpandLessIcon>
+                          
+                          {/* <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={openmenu}
+                                onClose={handleClose}
+                                MenuListProps={{
+                                  'aria-labelledby': 'basic-button',
+                                }}
+                              >
+                                <MenuItem onClick={handleClose}><FaRegClone></FaRegClone> Clone </MenuItem>
+
+                              </Menu> */}
+
+
+                        </Button>
+
+                                                    
+                                            
+                        
+
+
+
+
+
+                       
+                      </ButtonGroup>
+                   
                   </DialogActions>
                 </BootstrapDialog>
 
@@ -1321,7 +1799,7 @@ export default function MiniDrawer() {
 
           <Col sm={12} md={12} lg={3}>
             <Box className="card-custom">
-              <Accordion>
+              <Accordion defaultExpanded>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
@@ -1437,8 +1915,12 @@ export default function MiniDrawer() {
 
                       <Tooltip placement="left-end">
                         <Box >
-                          <OutlinedInput className="txt-type-or-click" placeholder="Type or click to add an user" />
+                          <Paper>
+                            <InputBase className="txt-type-or-click" placeholder="Type or click to add an user" />
+                          </Paper>
+
                         </Box>
+
                       </Tooltip>
                     </Grid>
                     <Grid item container xs={2} direction="column" className="icon-click-user">
@@ -1462,7 +1944,7 @@ export default function MiniDrawer() {
 
                 </AccordionDetails>
               </Accordion>
-              <Accordion>
+              <Accordion defaultExpanded>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
@@ -1558,7 +2040,10 @@ export default function MiniDrawer() {
 
                       <Tooltip placement="left-end">
                         <Box >
-                          <OutlinedInput className="txt-type-or-click" placeholder="Type or click to add an user" />
+                          <Paper>
+                            <InputBase className="txt-type-or-click" placeholder="Type or click to add an user" />
+                          </Paper>
+
                         </Box>
                       </Tooltip>
                     </Grid>
@@ -1585,7 +2070,7 @@ export default function MiniDrawer() {
 
                 </AccordionDetails>
               </Accordion>
-              <Accordion>
+              <Accordion defaultExpanded>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
@@ -1713,7 +2198,7 @@ export default function MiniDrawer() {
 
                 </AccordionDetails>
               </Accordion>
-              <Accordion>
+              <Accordion defaultExpanded>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
