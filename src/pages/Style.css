@@ -853,6 +853,10 @@ nav.sidebar{
     right: 3%;
 }
 
+.mobile-app-btn{
+    display: none !important;
+}
+
 
 
 ::-webkit-scrollbar {
@@ -915,6 +919,11 @@ nav.sidebar{
     .list-btn-mobile{
         display: block !important; 
     }
-    
+
+
+    .mobile-app-btn{
+        display: block !important;
+    }
+   
 
   }

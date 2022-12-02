@@ -568,6 +568,25 @@ export default function MiniDrawer() {
   };
 
 
+  const [anchorElmobile, setAnchorElmobile] = React.useState(null);
+  const openmenumobile = Boolean(anchorElmobile);
+  const handleClickmenumobile = (event) => {
+    setAnchorElmobile(event.currentTarget);
+  };
+  const handleClosemobile = () => {
+    setAnchorElmobile(null);
+  };
+
+
+  const [anchorElmobileicon, setAnchorElmobileicon] = React.useState(null);
+  const openmenumobileicon = Boolean(anchorElmobileicon);
+  const handleClickmenumobileicon = (event) => {
+    setAnchorElmobileicon(event.currentTarget);
+  };
+  const handleClosemobileicon = () => {
+    setAnchorElmobileicon(null);
+  };
+
 
 
 
@@ -589,12 +608,48 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <IconButton
-            className="subnav-icon-mobile"
 
-          >
-            <MenuIcon />
-          </IconButton>
+
+
+         
+
+          <IconButton
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClickmenumobile}
+              className="subnav-icon-mobile"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorElmobile}
+              open={openmenumobile}
+              onClose={handleClosemobile}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClosemobile}><AiOutlineDashboard className="iconstyle-dashboard" size={30}></AiOutlineDashboard>Dashboard</MenuItem>
+              <MenuItem onClick={handleClosemobile}><RememberMeIcon className="iconstyle-phone" size={30}></RememberMeIcon>My Work</MenuItem>
+              <MenuItem onClick={handleClosemobile}><HeadsetIcon className="iconstyle-headset" size={30}></HeadsetIcon>Desk</MenuItem>
+              <MenuItem onClick={handleClosemobile}><HiUserGroup className="iconstyle-hiuser" size={30} ></HiUserGroup>Custommer</MenuItem>
+              <MenuItem onClick={handleClosemobile}><AiOutlineCodepen className="iconstyle" size={30}></AiOutlineCodepen>Product</MenuItem>
+              <MenuItem onClick={handleClosemobile}><AiOutlineCodeSandbox className="iconstyle-sanbox" size={30}></AiOutlineCodeSandbox>Demo Page</MenuItem>
+              <MenuItem onClick={handleClosemobile}><FaRegStar className="iconstyle-start" size={30}></FaRegStar>Favories</MenuItem>
+              <MenuItem onClick={handleClosemobile}><GrStackOverflow className="iconstyle-work" size={30}></GrStackOverflow>My Work</MenuItem>
+            </Menu>
+
+
+
+
+
+
+
+
+
           <Typography variant="h6" noWrap component="div" className="title-custommer">
             Customer Name
           </Typography>
@@ -664,6 +719,43 @@ export default function MiniDrawer() {
               <LogoutIcon />
             </IconButton>
           </Box>
+
+
+          <Box className="mobile-app-btn">
+           
+
+          <IconButton
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClickmenumobileicon}
+              className="subnav-icon-mobile"
+            >
+              <MoreIcon />
+            </IconButton>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorElmobileicon}
+              open={openmenumobileicon}
+              onClose={handleClosemobileicon}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClosemobileicon}><AiFillPlusCircle className="iconstyle-plus"></AiFillPlusCircle></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><RestoreIcon /></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><SearchIcon /></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}> <Badge badgeContent={2} color="error">
+                <NotificationsIcon />
+              </Badge></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><SettingsIcon /></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><HelpOutlineIcon /></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><FcPortraitMode /></MenuItem>
+              <MenuItem onClick={handleClosemobileicon}><LogoutIcon /></MenuItem>
+            </Menu>
+
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -708,6 +800,16 @@ export default function MiniDrawer() {
         <Divider />
 
       </Drawer>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1129,6 +1231,16 @@ export default function MiniDrawer() {
                   alt="Remy Sharp"
                   src="/broken-image.jpg" className="avatar" > </Avatar>
               </ButtonGroup>
+
+
+
+
+
+
+
+
+             
+
 
 
 
