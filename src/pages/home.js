@@ -138,6 +138,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import TextField from '@mui/material/TextField';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import DirectionsIcon from '@mui/icons-material/Directions';
+
+
 
 
 
@@ -588,6 +591,18 @@ export default function MiniDrawer() {
   };
 
 
+  const [anchorElsavecreate, setAnchorElsavecreate] = React.useState(null);
+  const opensavecreate = Boolean(anchorElsavecreate);
+  const handleClicksavecreate = (event) => {
+    setAnchorElsavecreate(event.currentTarget);
+  };
+  const handleClosesavecreate = () => {
+    setAnchorElsavecreate(null);
+  };
+
+
+
+
 
 
   return (
@@ -835,7 +850,7 @@ export default function MiniDrawer() {
                 divider={<Divider orientation="vertical" flexItem color="Brown" />}
                 spacing={2}
               >
-                <Button variant="outlined"  ><KeyboardBackspaceIcon /></Button>
+                <Button variant="outlined" className="btn-back-ac" ><KeyboardBackspaceIcon /></Button>
                 <FormControl sx={{ m: 0, minWidth: 120 }} size="small" >
 
                   <Select
@@ -868,8 +883,9 @@ export default function MiniDrawer() {
               display: {
                 xs: 'block',
                 md: 'flex',
-                float: 'right',
-
+                // float: 'right',
+                
+               
 
               }
             }}>
@@ -885,6 +901,7 @@ export default function MiniDrawer() {
                       aria-haspopup="true"
                       aria-expanded={openmenu ? 'true' : undefined}
                       onClick={handleClick}
+                      className="btn-new-ee"
                     >
                       More<KeyboardArrowDownIcon></KeyboardArrowDownIcon>
                     </Button>
@@ -1109,13 +1126,15 @@ export default function MiniDrawer() {
                             displayEmpty
                             inputProps={{ 'aria-label': 'Without label' }}
                             divider={<Divider orientation="vertical" flexItem color="Brown" />}
+                            
                           >
+                            
                             <MenuItem value="" className="useravatar">
                               <Box className="avatar-assign-box-sms">
                                 <Avatar alt="Remy Sharp" src={Hoasen} className="avatar-assign-image" />
                                 <Typography className="username-sms">Situmay</Typography>
                                 <Box className="icon-avataruser">
-                                  <CreateIcon ></CreateIcon>
+                                  <CloseIcon className="icon-delete-usser"></CloseIcon>
                                 </Box>
                                
                               </Box>
@@ -1124,10 +1143,30 @@ export default function MiniDrawer() {
                             <MenuItem value={10}>Assign to me</MenuItem>
                             <MenuItem value={20}>User A</MenuItem>
                             <MenuItem value={30}>User B</MenuItem>
+                            
                           </Select>
+                          
                         </FormControl>
                       </Stack>
+
+
+
+
+                     
+
+
+
+
+                      
+                     
                     </Box>
+
+
+
+
+
+
+
 
 
 
@@ -1192,35 +1231,33 @@ export default function MiniDrawer() {
                         <Button autoFocus onClick={handleClosecreate} className="colorbtn">
                           Save 
                         </Button>
-                        <Button className="colorbtn"
-                          
-                        ><ExpandLessIcon></ExpandLessIcon>
-                          
-                          {/* <Menu
-                                id="basic-menu"
-                                anchorEl={anchorEl}
-                                open={openmenu}
-                                onClose={handleClose}
-                                MenuListProps={{
-                                  'aria-labelledby': 'basic-button',
-                                }}
-                              >
-                                <MenuItem onClick={handleClose}><FaRegClone></FaRegClone> Clone </MenuItem>
+                        {/* <Button className="colorbtn"><ExpandLessIcon></ExpandLessIcon></Button> */}
+                        <Button
+                            id="basic-button"
+                            aria-controls={opensavecreate ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={opensavecreate ? 'true' : undefined}
+                            onClick={handleClicksavecreate}
+                            className="colorbtn"
+                          >
+                            <ExpandLessIcon></ExpandLessIcon>
+                          </Button>
+                          <Menu
+                            id="basic-menu"
+                            
+                            anchorEl={anchorElsavecreate}
+                            open={opensavecreate}
+                            onClose={handleClosesavecreate}
+                            MenuListProps={{
+                              'aria-labelledby': 'basic-button',
+                            }}
+                          >
+                            <MenuItem className="btn-save-and-create" onClick={handleClosesavecreate}><FaRegClone></FaRegClone> Save and Create New </MenuItem>
+                           
 
-                              </Menu> */}
+                          </Menu>
 
-
-                        </Button>
-
-                                                    
-                                            
-                        
-
-
-
-
-
-                       
+ 
                       </ButtonGroup>
                    
                   </DialogActions>
@@ -1374,6 +1411,12 @@ export default function MiniDrawer() {
                       </React.Fragment>
                     </Card>
                   </Box>
+                    
+    
+
+
+
+
                 </TabPanel>
                 <TabPanel value="2">
                   <Divider className="divider-date">

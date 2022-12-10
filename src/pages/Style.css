@@ -49,6 +49,12 @@ nav.sidebar{
   
  } */
 
+ .box-done-new{
+     justify-content: flex-end;
+ }
+
+
+
 .title1{
     padding-right: 0%;
 }
@@ -111,17 +117,17 @@ nav.sidebar{
 }
 
 .iconstyle-sanbox{
-    color: violet;
+    color: #FFF0F5;
 }
 
 .iconstyle-hiuser{
-    color: violet;
+    color: #FFF0F5;
 }
 .iconstyle-start{
     color: yellow;
 }
 .iconstyle-work{
-    color: yellowgreen;
+    color:  #FFF0F5;
 }
 
 
@@ -245,23 +251,23 @@ nav.sidebar{
 }
 
 .group-calendar{
-    background-color: #aaffd4;
+    background-color: #e5e5e5;
     
 }
 .group-date{
-    background-color: honeydew;
+    background-color: #F0E68C;
 }
 
 .group-priority{
-    background-color: rgb(254, 240, 255);
+    background-color: honeydew;
 }
 
 .group-purpose{
-    background-color: #aaffd4;
+    background-color: #e5e5e5;
 }
 
 .box-status{
-    background-color: hotpink;
+    background-color:#56aaff;
     border-radius: 15px !important;
     width: 25%;
     display: flex;
@@ -725,7 +731,7 @@ nav.sidebar{
 
 .icon-avataruser{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .icon-clear-radius{
@@ -857,6 +863,13 @@ nav.sidebar{
     display: none !important;
 }
 
+.btn-save-and-create{
+    
+    position: absolute ;
+    
+    
+}
+
 
 
 ::-webkit-scrollbar {
@@ -909,9 +922,7 @@ nav.sidebar{
     .subnav-icon-mobile{
         display: block  !important;
     }
-    .box-done-new{
-        float:'left',
-    }
+    
 
     .tab-more-text-paper-note{
         display: none  !important; 
@@ -924,6 +935,21 @@ nav.sidebar{
     .mobile-app-btn{
         display: block !important;
     }
-   
+    
+    
+
+    .group-btn{
+        padding-left: 7%;
+        width: 90%;
+    }
+
+    .btn-more{
+       height: 33px;
+    }
+
+    .btn-back-ac{
+        height: 40px;
+    }
+
 
   }
