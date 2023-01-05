@@ -832,7 +832,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Row>
-          <Col sm={12} md={12} lg={6}>
+          <Col sm={12} md={6} lg={6}>
             <Box
               sx={{
                 display: 'flex',
@@ -877,7 +877,7 @@ export default function MiniDrawer() {
 
 
 
-          <Col sm={12} md={12} lg={6}>
+          <Col sm={12} md={6} lg={6}>
             <Box sx={{ flexGrow: 1 }} />
             <Box className="box-done-new" sx={{
               display: {
